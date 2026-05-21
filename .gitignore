@@ -1,6 +1,8 @@
 .DS_Store
 **/.DS_Store
 .idea/
+*.class
+target/
 __pycache__/
 *.pyc
 *.pyo
