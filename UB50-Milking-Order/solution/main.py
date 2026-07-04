@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 def read_input():
     fin = open("milkorder.in")
     data = fin.readlines()

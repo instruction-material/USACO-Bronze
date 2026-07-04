@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 """
 ID: your_id_here
 LANG: PYTHON3

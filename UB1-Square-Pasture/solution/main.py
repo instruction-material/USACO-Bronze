@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 f = open("square.in")
 data = f.readlines()
 f.close()

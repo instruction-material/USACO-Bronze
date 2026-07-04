@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 """
 ID: roobeel1
 LANG: PYTHON3

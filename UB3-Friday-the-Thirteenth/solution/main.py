@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 # read input
 with open("friday.in", "r") as file:
     input_years = int(file.readline().strip())

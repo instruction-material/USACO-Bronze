@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 # http://usaco.org/index.php?page=viewproblem2&cpid=712
 
 import string

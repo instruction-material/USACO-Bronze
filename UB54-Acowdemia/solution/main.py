@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 def h_index(papers):
     h = len(papers)
     while h > 0 and papers[h - 1] < h:
