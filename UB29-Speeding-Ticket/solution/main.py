@@ -1,15 +1,17 @@
 # http://www.usaco.org/index.php?page=viewproblem2&cpid=568
 
+
 def read_input():
     f = open("speeding.in")
     text = f.readlines()
     f.close()
 
     n = int(text[0].split()[0])
-    speed_limits = generate_speed_dict(text[1:n+1])
-    bessie_speeds = generate_speed_dict(text[n+1:])
+    speed_limits = generate_speed_dict(text[1 : n + 1])
+    bessie_speeds = generate_speed_dict(text[n + 1 :])
 
     return speed_limits, bessie_speeds
+
 
 # create a dictionary where each key is a road segment index
 # and each value is the speed or speed limit at that segment
@@ -27,6 +29,7 @@ def generate_speed_dict(data):
 
     return speed_dict
 
+
 def main(speed_limits, bessie_speeds):
     # iterate through the dictionaries and calculate the max amount
     # by which Bessie exceeded the speed limit
@@ -38,10 +41,12 @@ def main(speed_limits, bessie_speeds):
 
     return max_exceeds
 
+
 def write_output(max_exceeds):
-    f = open("speeding.out","w")
+    f = open("speeding.out", "w")
     f.write(str(max_exceeds) + "\n")
     f.close()
+
 
 speed_limits, bessie_speeds = read_input()
 max_exceeds = main(speed_limits, bessie_speeds)

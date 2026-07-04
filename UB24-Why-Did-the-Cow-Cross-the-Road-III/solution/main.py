@@ -1,5 +1,6 @@
 # http://usaco.org/index.php?page=viewproblem2&cpid=713
 
+
 def read_input():
     f = open("cowqueue.in")
     input_data = f.readlines()
@@ -7,17 +8,18 @@ def read_input():
 
     return input_data
 
+
 def main(input_data):
     # create dictionary where the keys are arrival time and values are
     # total questioning times
 
     times = {}
-    for i in range(1,len(input_data)):
+    for i in range(1, len(input_data)):
         line = input_data[i].split()
         arrival_time = int(input_data[i].split()[0])
         questioning_time = int(input_data[i].split()[1])
         if arrival_time in times:
-            times[arrival_time] += (questioning_time)
+            times[arrival_time] += questioning_time
         else:
             times[arrival_time] = questioning_time
 
@@ -36,10 +38,12 @@ def main(input_data):
 
     return latest_time
 
+
 def write_output(latest_time):
-    f = open("cowqueue.out","w")
+    f = open("cowqueue.out", "w")
     f.write(str(latest_time) + "\n")
     f.close()
+
 
 input_data = read_input()
 latest_time = main(input_data)

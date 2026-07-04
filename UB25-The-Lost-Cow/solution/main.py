@@ -1,5 +1,6 @@
 # http://www.usaco.org/index.php?page=viewproblem2&cpid=735
 
+
 def read_input():
     f = open("lostcow.in")
     text = f.readlines()
@@ -10,6 +11,7 @@ def read_input():
 
     return starting_pos, bessie_pos
 
+
 def main(starting_pos, bessie_pos):
     # continue the zig-zag search strategy until Farmer John reaches or passes Bessie
     distance_from_x = 1
@@ -17,7 +19,7 @@ def main(starting_pos, bessie_pos):
     curr_pos = starting_pos
     while True:
         new_pos = starting_pos + distance_from_x
-        dist_traveled += abs(new_pos-curr_pos)
+        dist_traveled += abs(new_pos - curr_pos)
         curr_pos = new_pos
         distance_from_x *= -2
 
@@ -25,17 +27,19 @@ def main(starting_pos, bessie_pos):
         if curr_pos == bessie_pos:
             break
         elif curr_pos < bessie_pos and starting_pos > bessie_pos:
-            dist_traveled -= abs(curr_pos-bessie_pos)
+            dist_traveled -= abs(curr_pos - bessie_pos)
             break
         elif curr_pos > bessie_pos and starting_pos < bessie_pos:
-            dist_traveled -= abs(curr_pos-bessie_pos)
+            dist_traveled -= abs(curr_pos - bessie_pos)
             break
     return dist_traveled
 
+
 def write_output(dist_traveled):
-    f = open("lostcow.out","w")
+    f = open("lostcow.out", "w")
     f.write(str(dist_traveled) + "\n")
     f.close()
+
 
 starting_pos, bessie_pos = read_input()
 dist_traveled = main(starting_pos, bessie_pos)

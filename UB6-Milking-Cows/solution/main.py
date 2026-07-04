@@ -4,6 +4,7 @@ LANG: PYTHON3
 TASK: milk2
 """
 
+
 # Returns a list of lists of start and end milking times
 def read_input():
     with open("milk2.in") as fin:
@@ -12,6 +13,7 @@ def read_input():
     for i in range(1, len(data)):
         times.append([int(data[i].split()[0]), int(data[i].split()[1])])
     return times
+
 
 # Returns an array of times when milking was active
 def create_array(times):
@@ -30,6 +32,7 @@ def create_array(times):
             milk_times[i] = True
 
     return milk_times, earliest_time, latest_time
+
 
 # Returns longest consecutive milking and non-milking times
 def calc_times(milk_times):
@@ -50,11 +53,13 @@ def calc_times(milk_times):
 
     return longest_milk_time, longest_no_milk_time
 
+
 # Write output
 def write_output(longest_milk_time, longest_no_milk_time):
-	fout = open("milk2.out","w")
-	fout.write(str(longest_milk_time) + " " + str(longest_no_milk_time) + "\n")
-	fout.close()
+    fout = open("milk2.out", "w")
+    fout.write(str(longest_milk_time) + " " + str(longest_no_milk_time) + "\n")
+    fout.close()
+
 
 times = read_input()
 milk_times, earliest_time, latest_time = create_array(times)

@@ -2,6 +2,7 @@
 
 from string import ascii_lowercase
 
+
 def read_input():
     f = open("blocks.in")
     text = f.readlines()
@@ -9,9 +10,10 @@ def read_input():
 
     # save word pairings in list of lists
     words = []
-    for i in range(1,len(text)):
+    for i in range(1, len(text)):
         words.append(text[i].split())
     return words
+
 
 # generates dictionary where key is letter and value is number of times
 # the letter appears in the word
@@ -23,6 +25,7 @@ def count_letters_in_word(word):
         else:
             letter_count[letter] = 1
     return letter_count
+
 
 def main(words):
     # for each letter, save the number of times it appears most frequently
@@ -61,6 +64,7 @@ def main(words):
 
     return master_dict
 
+
 def write_output(master_dict):
     f = open("blocks.out", "w")
     for letter in ascii_lowercase:
@@ -69,6 +73,7 @@ def write_output(master_dict):
         else:
             f.write(str(0) + "\n")
     f.close()
+
 
 words = read_input()
 master_dict = main(words)

@@ -4,6 +4,7 @@ LANG: PYTHON3
 TASK: crypt1
 """
 
+
 def read_input():
     f = open("crypt1.in")
     data = f.readlines()
@@ -11,6 +12,7 @@ def read_input():
 
     nums = data[1].strip().split()
     return nums
+
 
 # generate all possible options for the two numbers that will be multipled together
 def generate_options(nums):
@@ -20,13 +22,14 @@ def generate_options(nums):
     for i in nums:
         for j in nums:
             for k in nums:
-                num_one_options.append(i+j+k)
+                num_one_options.append(i + j + k)
 
     for i in nums:
         for j in nums:
-            num_two_options.append(i+j)
+            num_two_options.append(i + j)
 
     return num_one_options, num_two_options
+
 
 def main(num_one_options, num_two_options):
     # generate the three numbers involved in the multiplication
@@ -69,10 +72,12 @@ def main(num_one_options, num_two_options):
 
     return counter
 
+
 def write_output(answer):
     f = open("crypt1.out", "w+")
     f.write(str(answer) + "\n")
     f.close()
+
 
 nums = read_input()
 num_one_options, num_two_options = generate_options(nums)

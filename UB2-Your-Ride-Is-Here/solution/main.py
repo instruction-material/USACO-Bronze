@@ -15,18 +15,18 @@ comet = data[1].strip()
 # calculate products
 group_product = 1
 for letter in group:
-  group_product *= ord(letter)-64
+    group_product *= ord(letter) - 64
 
 comet_product = 1
 for letter in comet:
-  comet_product *= ord(letter)-64
+    comet_product *= ord(letter) - 64
 
 # write output
-f = open('ride.out', 'w')
+f = open("ride.out", "w")
 
 if group_product % 47 == comet_product % 47:
-  f.write('GO\n')
+    f.write("GO\n")
 else:
-  f.write('STAY\n')
+    f.write("STAY\n")
 
 f.close()

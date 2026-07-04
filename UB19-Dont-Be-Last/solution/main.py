@@ -1,5 +1,6 @@
 # http://www.usaco.org/index.php?page=viewproblem2&cpid=687
 
+
 def read_input():
     f = open("notlast.in")
     text = f.readlines()
@@ -18,12 +19,13 @@ def read_input():
         "Henrietta": 0,
     }
 
-    for i in range(1,len(text)):
+    for i in range(1, len(text)):
         cow = text[i].split()[0]
         milk = text[i].split()[1]
         cows[cow] += int(milk)
 
     return cows
+
 
 # returns the second lowest amount of milk (-1 if all cows tie for the lowest amount)
 def find_second_lowest(cows):
@@ -41,10 +43,11 @@ def find_second_lowest(cows):
 
     return second_lowest
 
+
 # find cow(s) associated with the second lowest amount of milk
 def main(cows, second_lowest):
     num_cows_found = 0
-    cow_name = ''
+    cow_name = ""
     if second_lowest != -1:
         for cow in cows:
             if cows[cow] == second_lowest:
@@ -53,15 +56,17 @@ def main(cows, second_lowest):
 
     return cow_name, num_cows_found
 
+
 def write_output(cow_name, second_lowest, num_cows_found):
-    f = open("notlast.out","w")
+    f = open("notlast.out", "w")
     if second_lowest == -1:
         f.write("Tie\n")
     elif num_cows_found > 1:
-       f.write("Tie\n")
+        f.write("Tie\n")
     else:
         f.write(cow_name + "\n")
     f.close()
+
 
 cows = read_input()
 second_lowest = find_second_lowest(cows)

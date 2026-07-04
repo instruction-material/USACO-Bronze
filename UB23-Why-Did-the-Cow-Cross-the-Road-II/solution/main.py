@@ -2,6 +2,7 @@
 
 import string
 
+
 def read_input():
     f = open("circlecross.in")
     text = f.readlines()
@@ -9,6 +10,7 @@ def read_input():
 
     circle = text[0].strip()
     return circle
+
 
 def main(circle):
     # count the number of times a single letter appears between two letters
@@ -20,7 +22,7 @@ def main(circle):
     letters = string.ascii_uppercase
     for letter in letters:
         current_pos = circle.find(letter)
-        unique_letters = [] # holds unique letters
+        unique_letters = []  # holds unique letters
         while True:
             current_pos += 1
             # handle case where circle wraps around
@@ -41,10 +43,12 @@ def main(circle):
         num_crossings += len(unique_letters)
     return num_crossings
 
+
 def write_output(num_crossings):
-    f = open("circlecross.out","w")
+    f = open("circlecross.out", "w")
     f.write(str(num_crossings) + "\n")
     f.close()
+
 
 circle = read_input()
 num_crossings = main(circle)

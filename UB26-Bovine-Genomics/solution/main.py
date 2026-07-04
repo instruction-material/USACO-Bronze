@@ -1,5 +1,6 @@
 # http://www.usaco.org/index.php?page=viewproblem2&cpid=736
 
+
 def read_input():
     f = open("cownomics.in")
     text = f.readlines()
@@ -10,13 +11,14 @@ def read_input():
     spotty_cows = []
     plain_cows = []
 
-    for i in range(1,num_cows+1):
+    for i in range(1, num_cows + 1):
         spotty_cows.append(text[i].strip())
 
-    for i in range(num_cows+1,len(text)):
+    for i in range(num_cows + 1, len(text)):
         plain_cows.append(text[i].strip())
 
     return spotty_cows, plain_cows, num_positions
+
 
 def main(spotty_cows, plain_cows, num_positions):
     # for each position, store the plain cow genes in a set.
@@ -24,7 +26,7 @@ def main(spotty_cows, plain_cows, num_positions):
     # if they do, increase numPossibleGenes by 1.
 
     num_possible_genes = 0
-    for i in range(0,num_positions):
+    for i in range(0, num_positions):
         plain_cow_genes = set()
         for plain_cow in plain_cows:
             plain_cow_genes.add(plain_cow[i])
@@ -39,10 +41,12 @@ def main(spotty_cows, plain_cows, num_positions):
 
     return num_possible_genes
 
+
 def write_output(num_possible_genes):
-    f = open("cownomics.out","w")
+    f = open("cownomics.out", "w")
     f.write(str(num_possible_genes) + "\n")
     f.close()
+
 
 spotty_cows, plain_cows, num_positions = read_input()
 num_possible_genes = main(spotty_cows, plain_cows, num_positions)

@@ -1,4 +1,3 @@
-
 def read_input():
     fin = open("milkorder.in")
     data = fin.readlines()
@@ -8,6 +7,7 @@ def read_input():
     req_cows = [[int(y) for y in x.split()] for x in data[2:]]
     return N, social, req_cows
 
+
 # check if constraints work
 def check(N, social, req_cows):
     ans = [0] * (N + 1)
@@ -16,27 +16,28 @@ def check(N, social, req_cows):
         ans[i[1]] = i[0]
         req[i[0]] = i[1]
 
-    cur_pos = 1;
-    placed = True;
+    cur_pos = 1
+    placed = True
     for cow in social:
-      if req[cow] != 0:
-        if req[cow] < cur_pos:
-            return False;
-        else:
-            cur_pos = req[cow] + 1;
-        continue;
+        if req[cow] != 0:
+            if req[cow] < cur_pos:
+                return False
+            else:
+                cur_pos = req[cow] + 1
+            continue
 
-      placed = False
+        placed = False
 
-      # greedily find next position to place cow
-      while cur_pos <= N:
-          if ans[cur_pos] == 0:
-              placed = True
-              ans[cur_pos] = cow
-              break
-          cur_pos += 1
+        # greedily find next position to place cow
+        while cur_pos <= N:
+            if ans[cur_pos] == 0:
+                placed = True
+                ans[cur_pos] = cow
+                break
+            cur_pos += 1
 
     return placed
+
 
 def main(N, social, req_cows):
     taken = [0] * (N + 1)
@@ -58,13 +59,15 @@ def main(N, social, req_cows):
         if check(N, social, req_cows):
             ans = i
             break
-        req_cows.pop();
+        req_cows.pop()
     return ans
+
 
 def write_output(ans):
     fout = open("milkorder.out", "w")
     fout.write(str(ans) + "\n")
     fout.close()
+
 
 N, social, req_cows = read_input()
 ans = main(N, social, req_cows)
