@@ -1,9 +1,17 @@
 import java.util.*;
 import java.io.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
-    
+
 		BufferedReader br = new BufferedReader(new FileReader("cowtip.in"));
 		int sq = Integer.parseInt(br.readLine());
 		int[][] square = new int[sq][sq];
@@ -12,10 +20,10 @@ class Main {
 		for(int i = 0; i < sq; i++) {
 			String s = br.readLine(); //row string
 			for(int j = 0; j < sq; j++) {
-				//get numeric form of the character in row s 
+				//get numeric form of the character in row s
 				int value = Character.getNumericValue(s.charAt(j));
 				square[i][j] = value;
-			}	
+			}
 		}
 		br.close();
 
@@ -34,7 +42,7 @@ class Main {
 		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("cowtip.out")));
 		pw.println(numFlips);
 		pw.close();
-		
+
   }
 
 	//flips over all cows in range [0-i][0-j] in 2D array a
@@ -45,10 +53,10 @@ class Main {
 				//switch 1 to 0 or 0 to 1
 				if(a[x][y] == 1) {
 					a[x][y] = 0;
-				} else { 
+				} else {
 					a[x][y] = 1;
 				}
-			}	
+			}
 		}
 
 	}

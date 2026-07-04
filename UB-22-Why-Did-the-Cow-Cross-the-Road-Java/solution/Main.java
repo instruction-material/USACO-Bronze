@@ -1,9 +1,17 @@
 import java.io.*;
 import java.util.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
-    
+
 		//ID number - 1 corresponds to the side of the road the cow is currently on
 		int[] cows = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
 		//sum is the number of crossings
@@ -13,7 +21,7 @@ class Main {
 		int observations = Integer.parseInt(br.readLine());
 
 		for(int i = 0; i < observations; i++) {
-		
+
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			int cow = Integer.parseInt(st.nextToken());
 			int side = Integer.parseInt(st.nextToken());
@@ -27,7 +35,7 @@ class Main {
 		}
 
 		br.close();
-		
+
 		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("crossroad.out")));
 		pw.println(sum);
 		pw.close();

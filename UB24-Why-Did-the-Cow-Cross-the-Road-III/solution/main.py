@@ -1,46 +1,46 @@
 # http://usaco.org/index.php?page=viewproblem2&cpid=713
 
-def readInput():
+def read_input():
     f = open("cowqueue.in")
-    inputData = f.readlines()
+    input_data = f.readlines()
     f.close()
 
-    return inputData
+    return input_data
 
-def main(inputData):
+def main(input_data):
     # create dictionary where the keys are arrival time and values are
     # total questioning times
 
     times = {}
-    for i in range(1,len(inputData)):
-        line = inputData[i].split()
-        arrivalTime = int(inputData[i].split()[0])
-        questioningTime = int(inputData[i].split()[1])
-        if arrivalTime in times:
-            times[arrivalTime] += (questioningTime)
+    for i in range(1,len(input_data)):
+        line = input_data[i].split()
+        arrival_time = int(input_data[i].split()[0])
+        questioning_time = int(input_data[i].split()[1])
+        if arrival_time in times:
+            times[arrival_time] += (questioning_time)
         else:
-            times[arrivalTime] = questioningTime
+            times[arrival_time] = questioning_time
 
-    latestTime = 0
-    for arrivalTime in sorted(times):
-        questioningTimes = times[arrivalTime]
+    latest_time = 0
+    for arrival_time in sorted(times):
+        questioning_times = times[arrival_time]
 
         # if the cows cannot get questionined immediately, add questioningTimes
         # to latestTime, otherwise just update latestTime to the time it would take
         # to question these cows
 
-        if arrivalTime < latestTime:
-            latestTime += questioningTimes
+        if arrival_time < latest_time:
+            latest_time += questioning_times
         else:
-            latestTime = arrivalTime + questioningTimes
+            latest_time = arrival_time + questioning_times
 
-    return latestTime
+    return latest_time
 
-def writeOutput(latestTime):
+def write_output(latest_time):
     f = open("cowqueue.out","w")
-    f.write(str(latestTime) + "\n")
+    f.write(str(latest_time) + "\n")
     f.close()
 
-inputData = readInput()
-latestTime = main(inputData)
-writeOutput(latestTime)
+input_data = read_input()
+latest_time = main(input_data)
+write_output(latest_time)

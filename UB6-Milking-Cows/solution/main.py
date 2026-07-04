@@ -5,7 +5,7 @@ TASK: milk2
 """
 
 # Returns a list of lists of start and end milking times
-def readInput():
+def read_input():
     with open("milk2.in") as fin:
         data = fin.readlines()
     times = []
@@ -14,49 +14,49 @@ def readInput():
     return times
 
 # Returns an array of times when milking was active
-def createArray(times):
+def create_array(times):
     # Find earliest and latest time
-    earliestTime = min(time[0] for time in times)
-    latestTime = max(time[1] for time in times)
+    earliest_time = min(time[0] for time in times)
+    latest_time = max(time[1] for time in times)
 
     # Create an array to track milking times
-    milkTimes = [False] * (latestTime - earliestTime)
+    milk_times = [False] * (latest_time - earliest_time)
 
     # Fill the array based on when milking was active
     for time in times:
-        startTime = time[0] - earliestTime
-        endTime = time[1] - earliestTime
-        for i in range(startTime, endTime):
-            milkTimes[i] = True
+        start_time = time[0] - earliest_time
+        end_time = time[1] - earliest_time
+        for i in range(start_time, end_time):
+            milk_times[i] = True
 
-    return milkTimes, earliestTime, latestTime
+    return milk_times, earliest_time, latest_time
 
 # Returns longest consecutive milking and non-milking times
-def calcTimes(milkTimes):
-    longestMilkTime = 0
-    currentMilkTime = 0
-    longestNoMilkTime = 0
-    currentNoMilkTime = 0
+def calc_times(milk_times):
+    longest_milk_time = 0
+    current_milk_time = 0
+    longest_no_milk_time = 0
+    current_no_milk_time = 0
 
-    for isMilking in milkTimes:
-        if isMilking:
-            currentMilkTime += 1
-            longestMilkTime = max(longestMilkTime, currentMilkTime)
-            currentNoMilkTime = 0
+    for is_milking in milk_times:
+        if is_milking:
+            current_milk_time += 1
+            longest_milk_time = max(longest_milk_time, current_milk_time)
+            current_no_milk_time = 0
         else:
-            currentNoMilkTime += 1
-            longestNoMilkTime = max(longestNoMilkTime, currentNoMilkTime)
-            currentMilkTime = 0
+            current_no_milk_time += 1
+            longest_no_milk_time = max(longest_no_milk_time, current_no_milk_time)
+            current_milk_time = 0
 
-    return longestMilkTime, longestNoMilkTime
+    return longest_milk_time, longest_no_milk_time
 
 # Write output
-def writeOutput(longestMilkTime, longestNoMilkTime):
+def write_output(longest_milk_time, longest_no_milk_time):
 	fout = open("milk2.out","w")
-	fout.write(str(longestMilkTime) + " " + str(longestNoMilkTime) + "\n")
+	fout.write(str(longest_milk_time) + " " + str(longest_no_milk_time) + "\n")
 	fout.close()
 
-times = readInput()
-milkTimes, earliestTime, latestTime = createArray(times)
-longestMilkTime, longestNoMilkTime = calcTimes(milkTimes)
-writeOutput(longestMilkTime, longestNoMilkTime)
+times = read_input()
+milk_times, earliest_time, latest_time = create_array(times)
+longest_milk_time, longest_no_milk_time = calc_times(milk_times)
+write_output(longest_milk_time, longest_no_milk_time)

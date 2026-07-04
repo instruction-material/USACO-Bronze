@@ -1,7 +1,15 @@
 import java.io.*;
 import java.util.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
 
 		// read input
@@ -13,7 +21,7 @@ class Main {
 		for (int i = 0; i < 4; i++) {
 			arr1[i] = Integer.parseInt(st.nextToken());
 		}
-		
+
 		int[] arr2 = new int[4];
 		st = new StringTokenizer(br.readLine());
 

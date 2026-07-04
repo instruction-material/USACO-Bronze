@@ -1,12 +1,20 @@
 import java.util.*;
 import java.io.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
-    
+
 		BufferedReader br = new BufferedReader(new FileReader("cownomics.in"));
 		StringTokenizer s = new StringTokenizer(br.readLine());
-		
+
 		int n = Integer.parseInt(s.nextToken()); //total number of each type of cow
 		int m = Integer.parseInt(s.nextToken()); //total number of positions
 
@@ -35,15 +43,15 @@ class Main {
 			}
 
 			//you can't determine spottiness if A, T, C, or G are in both plain and spotty cows
-			if(!(plain.contains('A') && spotty.contains('A') 
-			|| plain.contains('C') && spotty.contains('C') 
-			|| plain.contains('T') && spotty.contains('T') 
+			if(!(plain.contains('A') && spotty.contains('A')
+			|| plain.contains('C') && spotty.contains('C')
+			|| plain.contains('T') && spotty.contains('T')
 			|| plain.contains('G') && spotty.contains('G'))) {
 				positions++;
 			}
 
 		}
-		
+
 		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("cownomics.out")));
 		pw.println(positions);
 		pw.close();

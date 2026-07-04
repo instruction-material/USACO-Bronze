@@ -1,5 +1,5 @@
 
-def readInput():
+def read_input():
     fin = open("family.in")
     data = fin.readlines()
     fin.close()
@@ -14,33 +14,33 @@ def main(cow1, cow2, parents):
     count1 = 0
     count2 = -1
     done = False
-    curCow1 = cow1;
-    
+    cur_cow1 = cow1;
+
     # loop over all ancestors of cow1
     while not done:
-        curCow2 = cow2;
+        cur_cow2 = cow2;
         count2 = 0
 
         # loop over all ancestors of cow2
-        while not done: 
-            if curCow1 == curCow2:
+        while not done:
+            if cur_cow1 == cur_cow2:
                 done = True
                 break
-              
-            if curCow2 in parents: 
-                curCow2 = parents[curCow2]
+
+            if cur_cow2 in parents:
+                cur_cow2 = parents[cur_cow2]
                 count2 += 1
             else:
                 break
 
         if done:
             break
-        if curCow1 in parents: 
-            curCow1 = parents[curCow1]
+        if cur_cow1 in parents:
+            cur_cow1 = parents[cur_cow1]
             count1 += 1
         else:
             break
-    
+
     ans = ""
     if not done:
         ans = "NOT RELATED"
@@ -58,23 +58,23 @@ def main(cow1, cow2, parents):
             temp2 = count1;
             count1 = count2;
             count2 = temp2;
-        
+
         ans = cow1 + " is the " + "great-"*(count2-2)
 
         if count1 == 0 and count2 > 1:
             ans += "grand-"
         if count1 == 0:
             ans += "mother"
-        else: 
+        else:
             ans += "aunt"
         ans += " of " + cow2
     return ans
 
-def writeOutput(ans):
+def write_output(ans):
     fout = open("family.out", "w")
     fout.write(str(ans) + "\n")
     fout.close()
 
-cow1, cow2, parents = readInput()
+cow1, cow2, parents = read_input()
 ans = main(cow1, cow2, parents)
-writeOutput(ans)
+write_output(ans)

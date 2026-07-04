@@ -1,18 +1,26 @@
 import java.util.*;
 import java.io.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
-    
+
 		BufferedReader br = new BufferedReader(new FileReader("art.in"));
-		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("art.out")));		
+		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("art.out")));
 
 		//stores all colors that could possibly be first
 		ArrayList<Integer> a = new ArrayList<Integer>();
-		
+
 		int length = Integer.parseInt(br.readLine());
 		int[][] painting = new int[length][length];
-		
+
 		//initialize painting and put all of the colors in the painting in ArrayList a
 		for(int i = 0; i < length; i++) {
 			String s = br.readLine();
@@ -22,14 +30,14 @@ class Main {
 				if(painting[i][j] != 0 && !value(a, painting[i][j])) {
 					a.add(painting[i][j]);
 				}
-			
+
 			}
 		}
 		br.close();
 
 		//loop through each of the colors
 		for(int color = 1; color <= 9; color++) {
-			
+
 			//represent the rectangle of color
 			int minX = length;
 			int maxX = 0;
@@ -39,7 +47,7 @@ class Main {
 			//find minX, maxX, minY, and maxY
 			for(int i = 0; i < length; i++) {
 				for(int j = 0; j < length; j++) {
-					
+
 					if(painting[i][j] == color) {
 						if(i < minX) {
 							minX = i;
@@ -61,9 +69,9 @@ class Main {
 			//loop through rectangle of color
 			for(int i = minX; i <= maxX; i++) {
 				for(int j = minY; j <= maxY; j++) {
-					
+
 					//if the color at that spot is not equal to color and if it isn't just the blank canvas
-					if(painting[i][j] != color && 
+					if(painting[i][j] != color &&
 					painting[i][j] != 0) {
 						//painting[i][j] is over color and cannot be painted first
 						remove(a, painting[i][j]);
@@ -79,7 +87,7 @@ class Main {
 		pw.close();
 
 	}
-	
+
 	//returns true if int i is in ArrayList a
 	public static boolean value(ArrayList<Integer> a, int i) {
 		for(int x = 0; x < a.size(); x++) {
@@ -89,16 +97,16 @@ class Main {
 		}
 		return false;
 	}
-	
+
 	//removes int i from ArrayList a
 	public static void remove(ArrayList<Integer> a, int i) {
-	
+
 		for(int x = 0; x < a.size(); x++) {
 			if(a.get(x) == i) {
 				a.remove(x);
 			}
 		}
-	
+
 	}
 
 }

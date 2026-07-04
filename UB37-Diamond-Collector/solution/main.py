@@ -1,6 +1,6 @@
 # http://usaco.org/index.php?page=viewproblem2&cpid=639
 
-def readInput():
+def read_input():
     fin = open("diamond.in")
     data = fin.readlines()
     fin.close()
@@ -13,26 +13,26 @@ def readInput():
 
 # given the smallest diamond in a display case, find the number of diamonds
 # that can be displayed alongside it
-def calcNumDiamonds(minSize, sizes, k):
-    numDiamonds = 0
+def calc_num_diamonds(min_size, sizes, k):
+    num_diamonds = 0
     for diamond in sizes:
-        if diamond >= minSize and diamond <= minSize + k:
-            numDiamonds += 1
-    return numDiamonds
+        if diamond >= min_size and diamond <= min_size + k:
+            num_diamonds += 1
+    return num_diamonds
 
-def calcMaxDiamonds(sizes, k):
+def calc_max_diamonds(sizes, k):
     # test each diamond for how many can be displayed alongside it
-    maxDiamonds = 0
+    max_diamonds = 0
     for diamond in sizes:
-        numDiamonds = calcNumDiamonds(diamond, sizes, k)
-        maxDiamonds = max(maxDiamonds, numDiamonds)
-    return maxDiamonds
+        num_diamonds = calc_num_diamonds(diamond, sizes, k)
+        max_diamonds = max(max_diamonds, num_diamonds)
+    return max_diamonds
 
-def writeOutput(maxDiamonds):
+def write_output(max_diamonds):
     fout = open("diamond.out", "w")
-    fout.write(str(maxDiamonds) + "\n")
+    fout.write(str(max_diamonds) + "\n")
     fout.close()
 
-sizes, k = readInput()
-maxDiamonds = calcMaxDiamonds(sizes, k)
-writeOutput(maxDiamonds)
+sizes, k = read_input()
+max_diamonds = calc_max_diamonds(sizes, k)
+write_output(max_diamonds)

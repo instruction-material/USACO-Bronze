@@ -1,23 +1,23 @@
 # http://www.usaco.org/index.php?page=viewproblem2&cpid=689
 
-def readInput():
+def read_input():
     f = open("cowtip.in")
     text = f.readlines()
     f.close()
 
     grid = []
     for i in range(1,len(text)):
-        gridRow = []
+        grid_row = []
         for num in text[i].strip():
-            gridRow.append(int(num))
-        grid.append(gridRow)
+            grid_row.append(int(num))
+        grid.append(grid_row)
 
     return grid
 
 # flipGrid(grid, maxI, maxJ) flips the grid inside of the (maxI,maxJ) coordinate
-def flipGrid(grid, maxI, maxJ):
-    for i in range(0,maxI+1):
-        for j in range(0,maxJ+1):
+def flip_grid(grid, max_i, max_j):
+    for i in range(0,max_i+1):
+        for j in range(0,max_j+1):
             if grid[i][j] == 0:
                 grid[i][j] = 1
             else:
@@ -25,40 +25,40 @@ def flipGrid(grid, maxI, maxJ):
     return grid
 
 # isDone(grid) checks whether all the cows are upright (i.e. all 0s)
-def isDone(grid):
+def is_done(grid):
     for i in range(0,len(grid)):
         for j in range(0,len(grid)):
             if grid[i][j] == 1:
                 return False
     return True
 
-# minFlips(grid) calculates the minimum number of flips to upright the cows, 
+# minFlips(grid) calculates the minimum number of flips to upright the cows,
 # using the following algorithm:
 # 1. start tipping from the bottom right corner.
 # 2. keep searching to the left.
 # 3. when an entire row is searched, move up to the next row.
 
-def minFlips(grid):
+def min_flips(grid):
     # edge case: all cows are already upright
-    if isDone(grid):
+    if is_done(grid):
         return 0
-    
-    numFlips = 0
+
+    num_flips = 0
     while True:
         for i in range(len(grid)-1, -1, -1):
             for j in range(len(grid)-1, -1, -1):
                 if grid[i][j] == 1:
-                    grid = flipGrid(grid,i,j)
-                    numFlips += 1
-                    
-                    if isDone(grid):
-                        return numFlips
+                    grid = flip_grid(grid,i,j)
+                    num_flips += 1
 
-def writeOutput(numFlips):
+                    if is_done(grid):
+                        return num_flips
+
+def write_output(num_flips):
     f = open("cowtip.out","w")
-    f.write(str(numFlips) + "\n")
+    f.write(str(num_flips) + "\n")
     f.close()
 
-grid = readInput()
-numFlips = minFlips(grid)
-writeOutput(numFlips)
+grid = read_input()
+num_flips = min_flips(grid)
+write_output(num_flips)

@@ -1,55 +1,55 @@
 # http://usaco.org/index.php?page=viewproblem2&cpid=711
 
-def readInput():
+def read_input():
     f = open("crossroad.in")
     text = f.readlines()
     f.close()
 
-    inputData = []
+    input_data = []
     for i in range(1,len(text)):
         line = text[i].split()
         line = [int(x) for x in line]
-        inputData.append(line)
-    return inputData
+        input_data.append(line)
+    return input_data
 
-def main(inputData):
+def main(input_data):
     # create two dictionaries where the keys are the cow IDs
     # lastPosition: tracks the last position (0 or 1) of each cow
     # numCrossings: tracks the number of crossings of each cow
 
-    lastPosition = {}
-    numCrossings = {}
+    last_position = {}
+    num_crossings = {}
 
-    for line in inputData:
-        cowId = line[0]
-        if cowId not in lastPosition:
-            lastPosition[cowId] = ''
-            numCrossings[cowId] = 0
+    for line in input_data:
+        cow_id = line[0]
+        if cow_id not in last_position:
+            last_position[cow_id] = ''
+            num_crossings[cow_id] = 0
 
     # run through the input and update lastPosition and numCrossings
-    for line in inputData:
-        cowId = line[0]
+    for line in input_data:
+        cow_id = line[0]
         position = line[1]
 
         # handle case if this is the first position for this cow
-        if lastPosition[cowId] == '':
-            lastPosition[cowId] = position
-        elif position != lastPosition[cowId]:
-            lastPosition[cowId] = position
-            numCrossings[cowId] += 1
+        if last_position[cow_id] == '':
+            last_position[cow_id] = position
+        elif position != last_position[cow_id]:
+            last_position[cow_id] = position
+            num_crossings[cow_id] += 1
 
     # sum total number of crossings
-    totalCrossings = 0
-    for key in numCrossings:
-        totalCrossings += numCrossings[key]
+    total_crossings = 0
+    for key in num_crossings:
+        total_crossings += num_crossings[key]
 
-    return totalCrossings
+    return total_crossings
 
-def writeOutput(totalCrossings):
+def write_output(total_crossings):
     f = open("crossroad.out","w")
-    f.write(str(totalCrossings) + "\n")
+    f.write(str(total_crossings) + "\n")
     f.close()
 
-inputData = readInput()
-totalCrossings = main(inputData)
-writeOutput(totalCrossings)
+input_data = read_input()
+total_crossings = main(input_data)
+write_output(total_crossings)

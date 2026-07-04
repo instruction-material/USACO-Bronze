@@ -2,7 +2,7 @@
 
 from string import ascii_lowercase
 
-def readInput():
+def read_input():
     f = open("blocks.in")
     text = f.readlines()
     f.close()
@@ -15,61 +15,61 @@ def readInput():
 
 # generates dictionary where key is letter and value is number of times
 # the letter appears in the word
-def countLettersInWord(word):
-    letterCount = {}
+def count_letters_in_word(word):
+    letter_count = {}
     for letter in word:
-        if letter in letterCount:
-            letterCount[letter] += 1
+        if letter in letter_count:
+            letter_count[letter] += 1
         else:
-            letterCount[letter] = 1
-    return letterCount
+            letter_count[letter] = 1
+    return letter_count
 
 def main(words):
     # for each letter, save the number of times it appears most frequently
     # on either side of the block
-    masterDict = {}
-    for wordPair in words:
-        wordOneDict = countLettersInWord(wordPair[0])
-        wordTwoDict = countLettersInWord(wordPair[1])
+    master_dict = {}
+    for word_pair in words:
+        word_one_dict = count_letters_in_word(word_pair[0])
+        word_two_dict = count_letters_in_word(word_pair[1])
 
         # iterate through all letters contained in at least one of the two words
-        for letter in set(wordOneDict.keys()).union(wordTwoDict.keys()):
-            
+        for letter in set(word_one_dict.keys()).union(word_two_dict.keys()):
+
             # if the letter is in both words, add the larger count to masterDict
-            if letter in wordOneDict and letter in wordTwoDict:
-                maxCount = wordOneDict[letter]
-                if wordTwoDict[letter] > maxCount:
-                    maxCount = wordTwoDict[letter]
-                
-                if letter in masterDict:
-                    masterDict[letter] += maxCount
+            if letter in word_one_dict and letter in word_two_dict:
+                max_count = word_one_dict[letter]
+                if word_two_dict[letter] > max_count:
+                    max_count = word_two_dict[letter]
+
+                if letter in master_dict:
+                    master_dict[letter] += max_count
                 else:
-                    masterDict[letter] = maxCount
+                    master_dict[letter] = max_count
 
             # else, just add the count from one of the words to masterDict
             else:
-                maxCount = 0
-                if letter in wordOneDict:
-                    maxCount = wordOneDict[letter]
+                max_count = 0
+                if letter in word_one_dict:
+                    max_count = word_one_dict[letter]
                 else:
-                    maxCount = wordTwoDict[letter]
-                
-                if letter in masterDict:
-                    masterDict[letter] += maxCount
+                    max_count = word_two_dict[letter]
+
+                if letter in master_dict:
+                    master_dict[letter] += max_count
                 else:
-                    masterDict[letter] = maxCount
+                    master_dict[letter] = max_count
 
-    return masterDict
+    return master_dict
 
-def writeOutput(masterDict):
+def write_output(master_dict):
     f = open("blocks.out", "w")
     for letter in ascii_lowercase:
-        if letter in masterDict:
-            f.write(str(masterDict[letter]) + "\n")
+        if letter in master_dict:
+            f.write(str(master_dict[letter]) + "\n")
         else:
             f.write(str(0) + "\n")
     f.close()
 
-words = readInput()
-masterDict = main(words)
-writeOutput(masterDict)
+words = read_input()
+master_dict = main(words)
+write_output(master_dict)

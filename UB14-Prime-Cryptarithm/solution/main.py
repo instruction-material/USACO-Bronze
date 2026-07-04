@@ -4,36 +4,36 @@ LANG: PYTHON3
 TASK: crypt1
 """
 
-def readInput():
+def read_input():
     f = open("crypt1.in")
     data = f.readlines()
     f.close()
-    
+
     nums = data[1].strip().split()
     return nums
 
 # generate all possible options for the two numbers that will be multipled together
-def generateOptions(nums):
-    numOneOptions = []
-    numTwoOptions = []
+def generate_options(nums):
+    num_one_options = []
+    num_two_options = []
 
     for i in nums:
         for j in nums:
             for k in nums:
-                numOneOptions.append(i+j+k)
+                num_one_options.append(i+j+k)
 
     for i in nums:
         for j in nums:
-            numTwoOptions.append(i+j)
+            num_two_options.append(i+j)
 
-    return numOneOptions, numTwoOptions
+    return num_one_options, num_two_options
 
-def main(numOneOptions, numTwoOptions):
+def main(num_one_options, num_two_options):
     # generate the three numbers involved in the multiplication
     # check combination for its validity
     counter = 0
-    for i in numOneOptions:
-        for j in numTwoOptions:
+    for i in num_one_options:
+        for j in num_two_options:
             num1 = i
             num2 = j
 
@@ -41,11 +41,11 @@ def main(numOneOptions, numTwoOptions):
             row2 = int(num1) * int(num2[0])
             product = int(num1) * int(num2)
 
-            isValid = True
+            is_valid = True
 
             # make sure that each number is the correct number of digits
             if row1 > 999 or row2 > 999 or product > 9999:
-                isValid = False
+                is_valid = False
 
             row1 = str(row1)
             row2 = str(row2)
@@ -54,27 +54,27 @@ def main(numOneOptions, numTwoOptions):
             # check that each number only contains valid digits
             for k in row1:
                 if k not in nums:
-                    isValid = False
+                    is_valid = False
 
             for k in row2:
                 if k not in nums:
-                    isValid = False
+                    is_valid = False
 
             for k in product:
                 if k not in nums:
-                    isValid = False
+                    is_valid = False
 
-            if isValid:
+            if is_valid:
                 counter += 1
 
     return counter
 
-def writeOutput(answer):
+def write_output(answer):
     f = open("crypt1.out", "w+")
     f.write(str(answer) + "\n")
     f.close()
 
-nums = readInput()
-numOneOptions, numTwoOptions = generateOptions(nums)
-answer = main(numOneOptions, numTwoOptions)
-writeOutput(answer)
+nums = read_input()
+num_one_options, num_two_options = generate_options(nums)
+answer = main(num_one_options, num_two_options)
+write_output(answer)

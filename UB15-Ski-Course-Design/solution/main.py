@@ -4,7 +4,7 @@ LANG: PYTHON3
 TASK: skidesign
 """
 
-def readInput():
+def read_input():
     f = open("skidesign.in")
     data = f.readlines()
     f.close()
@@ -20,29 +20,29 @@ def main(heights):
     # calculate the total cost for each possible interval, starting from
     # (minHeight, lowestHeight + 17) up to (minHeight - 17, maxHeight)
 
-    minCost = 1000 * 100**2 # make sure minCost is set reasonably
-    minHeight = heights[0]
-    maxHeight = minHeight + 17
+    min_cost = 1000 * 100**2 # make sure minCost is set reasonably
+    min_height = heights[0]
+    max_height = min_height + 17
 
-    while minHeight <= heights[-1]-17:
+    while min_height <= heights[-1]-17:
         cost = 0
         for height in heights:
-            if height < minHeight:
-                cost += (height-minHeight)**2
-            elif height > maxHeight:
-                cost += (height-maxHeight)**2
-        if cost < minCost:
-            minCost = cost
-        minHeight += 1
-        maxHeight += 1
+            if height < min_height:
+                cost += (height-min_height)**2
+            elif height > max_height:
+                cost += (height-max_height)**2
+        if cost < min_cost:
+            min_cost = cost
+        min_height += 1
+        max_height += 1
 
-    return minCost
+    return min_cost
 
-def writeOutput(minCost):
+def write_output(min_cost):
     f = open("skidesign.out", "w+")
-    f.write(str(minCost) + "\n")
+    f.write(str(min_cost) + "\n")
     f.close()
 
-heights = readInput()
-minCost = main(heights)
-writeOutput(minCost)
+heights = read_input()
+min_cost = main(heights)
+write_output(min_cost)

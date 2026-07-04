@@ -1,6 +1,6 @@
 # http://www.usaco.org/index.php?page=viewproblem2&cpid=737
 
-def readInput():
+def read_input():
     f = open("art.in")
     text = f.readlines()
     f.close()
@@ -12,7 +12,7 @@ def readInput():
     return canvas
 
 # checks if a given color is in the canvas
-def isInCanvas(color):
+def is_in_canvas(color):
     for i in range(0,len(canvas)):
         for j in range(0,len(canvas[0])):
             if color == canvas[i][j]:
@@ -20,54 +20,54 @@ def isInCanvas(color):
     return False
 
 # returns whether color1 is found inside the rectangle of color2
-def colorInRect(color1, color2):
+def color_in_rect(color1, color2):
     # find boundaries of color2
-    minRow = len(canvas)
-    maxRow = 0
-    minCol = len(canvas[0])
-    maxCol = 0
+    min_row = len(canvas)
+    max_row = 0
+    min_col = len(canvas[0])
+    max_col = 0
     for i in range(0,len(canvas)):
         for j in range(0,len(canvas[0])):
             if canvas[i][j] == color2:
-                if i < minRow:
-                    minRow = i
-                if i > maxRow:
-                    maxRow = i
-                if j < minCol:
-                    minCol = j
-                if j > maxCol:
-                    maxCol = j
+                if i < min_row:
+                    min_row = i
+                if i > max_row:
+                    max_row = i
+                if j < min_col:
+                    min_col = j
+                if j > max_col:
+                    max_col = j
 
     # check if color1 is found inside color2
-    for i in range(minRow, maxRow + 1):
-        for j in range(minCol, maxCol + 1):
+    for i in range(min_row, max_row + 1):
+        for j in range(min_col, max_col + 1):
             if color1 == canvas[i][j]:
                 return True
     return False
-    
+
 def main(canvas):
     # check each color and see if it is on top of any other rectangles.
     # if it is, then it cannot have been drawn first.
 
-    numPossible = 0
+    num_possible = 0
     for color in range(1,10):
         color = str(color)
-        if isInCanvas(color):
-            couldBeFirst = True
+        if is_in_canvas(color):
+            could_be_first = True
             for color2 in range(1,10):
                 color2 = str(color2)
                 if color2 != color:
-                    if colorInRect(color, color2):
-                        couldBeFirst = False
-            if couldBeFirst:
-                numPossible += 1
-    return numPossible
+                    if color_in_rect(color, color2):
+                        could_be_first = False
+            if could_be_first:
+                num_possible += 1
+    return num_possible
 
-def writeOutput(numPossible):
+def write_output(num_possible):
     f = open("art.out","w")
-    f.write(str(numPossible) + "\n")
+    f.write(str(num_possible) + "\n")
     f.close()
 
-canvas = readInput()
-numPossible = main(canvas)
-writeOutput(numPossible)
+canvas = read_input()
+num_possible = main(canvas)
+write_output(num_possible)

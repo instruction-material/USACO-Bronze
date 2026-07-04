@@ -1,16 +1,24 @@
 import java.util.*;
 import java.io.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
 
 		BufferedReader br = new BufferedReader(new FileReader("cowqueue.in"));
 		int cows = Integer.parseInt(br.readLine());
-		
+
 		//stores the time data
 		Map<Integer, Integer> times = new HashMap<>();
 		for(int i = 0; i < cows; i++) {
-		
+
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			int key = Integer.parseInt(st.nextToken());
 
@@ -31,10 +39,10 @@ class Main {
 		int current = 0; //keeps track of the current time
 
 		for(int i = 0; i < keys.size(); i++) {
-			
+
 			int key = keys.get(i);
 			int value = times.get(key);
-			
+
 			//if you haven't reached the time at which the next cow enters, then skip forward to that time (key)
 			if(key > current) {
 				current = key;

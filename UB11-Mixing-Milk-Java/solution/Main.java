@@ -8,12 +8,17 @@ import java.util.*;
 import java.io.*;
 
 class milk {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
-    
+
 		BufferedReader br = new BufferedReader(new FileReader("milk.in"));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 
-		int price = 0; 
+		int price = 0;
 		int totalUnits = Integer.parseInt(st.nextToken());
 		int numFarmers = Integer.parseInt(st.nextToken());
 
@@ -22,7 +27,7 @@ class milk {
 		for(int i = 0; i < numFarmers; i++) {
 			st = new StringTokenizer(br.readLine());
 			int key = Integer.parseInt(st.nextToken());
-			
+
       // if the TreeMap already has this price, update the number of units available at this price, otherwise put this info into the TreeMap
 			if (priceUnits.containsKey(key)) {
 				priceUnits.put(key, Integer.parseInt(st.nextToken()) + priceUnits.get(key));
@@ -40,7 +45,7 @@ class milk {
 
       // we either need to buy all of the units available at this price, or buy the amount we need to satisfy the total and break
 			if (availableUnits < totalUnits) {
-				totalUnits -= availableUnits; 
+				totalUnits -= availableUnits;
 				price += pricePoint * availableUnits;
 			} else {
 				price += pricePoint * totalUnits;

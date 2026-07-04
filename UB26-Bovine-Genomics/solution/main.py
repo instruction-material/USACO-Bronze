@@ -1,49 +1,49 @@
 # http://www.usaco.org/index.php?page=viewproblem2&cpid=736
 
-def readInput():
+def read_input():
     f = open("cownomics.in")
     text = f.readlines()
     f.close()
 
-    numCows = int(text[0].split()[0])
-    numPositions = int(text[0].split()[1])
-    spottyCows = []
-    plainCows = []
+    num_cows = int(text[0].split()[0])
+    num_positions = int(text[0].split()[1])
+    spotty_cows = []
+    plain_cows = []
 
-    for i in range(1,numCows+1):
-        spottyCows.append(text[i].strip())
+    for i in range(1,num_cows+1):
+        spotty_cows.append(text[i].strip())
 
-    for i in range(numCows+1,len(text)):
-        plainCows.append(text[i].strip())
+    for i in range(num_cows+1,len(text)):
+        plain_cows.append(text[i].strip())
 
-    return spottyCows, plainCows, numPositions
+    return spotty_cows, plain_cows, num_positions
 
-def main(spottyCows, plainCows, numPositions):
+def main(spotty_cows, plain_cows, num_positions):
     # for each position, store the plain cow genes in a set.
     # check if all the spotty cows have a different letter.
     # if they do, increase numPossibleGenes by 1.
 
-    numPossibleGenes = 0
-    for i in range(0,numPositions):
-        plainCowGenes = set()
-        for plainCow in plainCows:
-            plainCowGenes.add(plainCow[i])
+    num_possible_genes = 0
+    for i in range(0,num_positions):
+        plain_cow_genes = set()
+        for plain_cow in plain_cows:
+            plain_cow_genes.add(plain_cow[i])
 
-        spottyCowsHaveOtherLetters = True
-        for spottyCow in spottyCows:
-            if spottyCow[i] in plainCowGenes:
-                spottyCowsHaveOtherLetters = False
+        spotty_cows_have_other_letters = True
+        for spotty_cow in spotty_cows:
+            if spotty_cow[i] in plain_cow_genes:
+                spotty_cows_have_other_letters = False
 
-        if spottyCowsHaveOtherLetters:
-            numPossibleGenes += 1
+        if spotty_cows_have_other_letters:
+            num_possible_genes += 1
 
-    return numPossibleGenes
+    return num_possible_genes
 
-def writeOutput(numPossibleGenes):
+def write_output(num_possible_genes):
     f = open("cownomics.out","w")
-    f.write(str(numPossibleGenes) + "\n")
+    f.write(str(num_possible_genes) + "\n")
     f.close()
 
-spottyCows, plainCows, numPositions = readInput()
-numPossibleGenes = main(spottyCows, plainCows, numPositions)
-writeOutput(numPossibleGenes)
+spotty_cows, plain_cows, num_positions = read_input()
+num_possible_genes = main(spotty_cows, plain_cows, num_positions)
+write_output(num_possible_genes)

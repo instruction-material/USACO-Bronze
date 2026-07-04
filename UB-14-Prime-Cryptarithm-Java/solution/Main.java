@@ -7,7 +7,15 @@ TASK: crypt1
 import java.io.*;
 import java.util.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
 
 		BufferedReader br = new BufferedReader(new FileReader("crypt1.in"));
@@ -27,14 +35,14 @@ class Main {
 				for(int cc = 0; cc < total; cc++) { //c
 					for(int dd = 0; dd < total; dd++) { //d
 						for(int ee = 0; ee < total; ee++) { //e
-							
+
 							//abc * de
 							int a = set[aa];
 							int b = set[bb];
 							int c = set[cc];
 							int d = set[dd];
 							int e = set[ee];
-							
+
 							//strings represent the two numbers you are multiplying together
 							String abc = "" + a + b + c;
 							String de = "" + d + e;
@@ -42,7 +50,7 @@ class Main {
 							//strings represent partial products
 							String pa1 = Integer.parseInt(abc)*e + "";
 							String pa2 = Integer.parseInt(abc)*d + "";
-							
+
 							//string represents the final product
 							String product = Integer.parseInt(abc)*Integer.parseInt(de) + "";
 
@@ -54,17 +62,17 @@ class Main {
 						}
 					}
 				}
-			}	
+			}
 		}
 
 		//output
-		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("crypt1.out")));	
+		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("crypt1.out")));
 		pw.println(answer);
 		pw.close();
 		br.close();
 
   }
-	
+
 	//checks if the "digits" in str are all in set a
 	public static boolean inSet(String str, int[] a) {
 
@@ -83,7 +91,7 @@ class Main {
 			if(!found) {
 				return false;
 			}
-      
+
 		}
 		return true;
 	}

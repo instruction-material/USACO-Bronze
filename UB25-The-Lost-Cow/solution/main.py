@@ -1,42 +1,42 @@
 # http://www.usaco.org/index.php?page=viewproblem2&cpid=735
 
-def readInput():
+def read_input():
     f = open("lostcow.in")
     text = f.readlines()
     f.close()
 
-    startingPos = int(text[0].split()[0])
-    bessiePos = int(text[0].split()[1])
+    starting_pos = int(text[0].split()[0])
+    bessie_pos = int(text[0].split()[1])
 
-    return startingPos, bessiePos
+    return starting_pos, bessie_pos
 
-def main(startingPos, bessiePos):
+def main(starting_pos, bessie_pos):
     # continue the zig-zag search strategy until Farmer John reaches or passes Bessie
-    distanceFromX = 1
-    distTraveled = 0
-    currPos = startingPos
+    distance_from_x = 1
+    dist_traveled = 0
+    curr_pos = starting_pos
     while True:
-        newPos = startingPos + distanceFromX
-        distTraveled += abs(newPos-currPos)
-        currPos = newPos
-        distanceFromX *= -2
+        new_pos = starting_pos + distance_from_x
+        dist_traveled += abs(new_pos-curr_pos)
+        curr_pos = new_pos
+        distance_from_x *= -2
 
         # make sure we update distTraveled properly if Farmer John overshot Bessie
-        if currPos == bessiePos:
+        if curr_pos == bessie_pos:
             break
-        elif currPos < bessiePos and startingPos > bessiePos:
-            distTraveled -= abs(currPos-bessiePos)
+        elif curr_pos < bessie_pos and starting_pos > bessie_pos:
+            dist_traveled -= abs(curr_pos-bessie_pos)
             break
-        elif currPos > bessiePos and startingPos < bessiePos:
-            distTraveled -= abs(currPos-bessiePos)
+        elif curr_pos > bessie_pos and starting_pos < bessie_pos:
+            dist_traveled -= abs(curr_pos-bessie_pos)
             break
-    return distTraveled
+    return dist_traveled
 
-def writeOutput(distTraveled):
+def write_output(dist_traveled):
     f = open("lostcow.out","w")
-    f.write(str(distTraveled) + "\n")
+    f.write(str(dist_traveled) + "\n")
     f.close()
 
-startingPos, bessiePos = readInput()
-distTraveled = main(startingPos, bessiePos)
-writeOutput(distTraveled)
+starting_pos, bessie_pos = read_input()
+dist_traveled = main(starting_pos, bessie_pos)
+write_output(dist_traveled)

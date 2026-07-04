@@ -1,6 +1,6 @@
 # http://www.usaco.org/index.php?page=viewproblem2&cpid=688
 
-def readInput():
+def read_input():
     f = open("hps.in")
     text = f.readlines()
     f.close()
@@ -16,7 +16,7 @@ def readInput():
 def main(combos):
     # define winning combinations for each possible permutation
     # note that this doesn't have to be a dictionary, but we use one for readability
-    winningCombos = {
+    winning_combos = {
         'hoof1paper2scissors3': [[2,1],[1,3],[3,2]],
         'hoof1scissors2paper3': [[1,2],[3,1],[2,3]],
         'paper1hoof2scissors3': [[1,2],[3,1],[2,3]],
@@ -26,23 +26,23 @@ def main(combos):
     }
 
     # find max number of winning combinations
-    maxWins = 0
-    for key in winningCombos:
-        winningPairs = winningCombos[key]
-        numWins = 0
+    max_wins = 0
+    for key in winning_combos:
+        winning_pairs = winning_combos[key]
+        num_wins = 0
         for combo in combos:
-            if combo in winningPairs:
-                numWins += 1
-        if numWins > maxWins:
-            maxWins = numWins
+            if combo in winning_pairs:
+                num_wins += 1
+        if num_wins > max_wins:
+            max_wins = num_wins
 
-    return maxWins
+    return max_wins
 
-def writeOutput(maxWins):
+def write_output(max_wins):
     f = open("hps.out","w")
-    f.write(str(maxWins) + "\n")
+    f.write(str(max_wins) + "\n")
     f.close()
 
-combos = readInput()
-maxWins = main(combos)
-writeOutput(maxWins)
+combos = read_input()
+max_wins = main(combos)
+write_output(max_wins)

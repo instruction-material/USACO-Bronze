@@ -2,7 +2,7 @@
 
 import string
 
-def readInput():
+def read_input():
     f = open("circlecross.in")
     text = f.readlines()
     f.close()
@@ -15,37 +15,37 @@ def main(circle):
     # for each letter, only consider the letters that come after it to avoid
     # double-counting
 
-    numCrossings = 0
+    num_crossings = 0
 
     letters = string.ascii_uppercase
     for letter in letters:
-        currentPos = circle.find(letter)
-        uniqueLetters = [] # holds unique letters
+        current_pos = circle.find(letter)
+        unique_letters = [] # holds unique letters
         while True:
-            currentPos += 1
+            current_pos += 1
             # handle case where circle wraps around
-            if currentPos >= len(circle):
-                currentPos = 0
+            if current_pos >= len(circle):
+                current_pos = 0
             # break when we find the same letter again
-            if circle[currentPos] == letter:
+            if circle[current_pos] == letter:
                 break
 
-            currentLetter = circle[currentPos]
-            if ord(currentLetter) > ord(letter):
+            current_letter = circle[current_pos]
+            if ord(current_letter) > ord(letter):
                 # remove currentLetter from uniqueLetters if it appears twice
-                if currentLetter not in uniqueLetters:
-                    uniqueLetters.append(currentLetter)
+                if current_letter not in unique_letters:
+                    unique_letters.append(current_letter)
                 else:
-                    uniqueLetters.remove(currentLetter)
+                    unique_letters.remove(current_letter)
 
-        numCrossings += len(uniqueLetters)
-    return numCrossings
-    
-def writeOutput(numCrossings):
+        num_crossings += len(unique_letters)
+    return num_crossings
+
+def write_output(num_crossings):
     f = open("circlecross.out","w")
-    f.write(str(numCrossings) + "\n")
+    f.write(str(num_crossings) + "\n")
     f.close()
 
-circle = readInput()
-numCrossings = main(circle)
-writeOutput(numCrossings)
+circle = read_input()
+num_crossings = main(circle)
+write_output(num_crossings)

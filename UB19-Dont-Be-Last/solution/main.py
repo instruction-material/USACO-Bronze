@@ -1,6 +1,6 @@
 # http://www.usaco.org/index.php?page=viewproblem2&cpid=687
 
-def readInput():
+def read_input():
     f = open("notlast.in")
     text = f.readlines()
     f.close()
@@ -26,44 +26,44 @@ def readInput():
     return cows
 
 # returns the second lowest amount of milk (-1 if all cows tie for the lowest amount)
-def findSecondLowest(cows):
-    milkAmts = []
+def find_second_lowest(cows):
+    milk_amts = []
     for cow in cows:
-        milkAmts.append(cows[cow])
+        milk_amts.append(cows[cow])
 
-    milkAmts = sorted(milkAmts)
-    lowest = milkAmts[0]
-    secondLowest = -1
-    for i in milkAmts:
+    milk_amts = sorted(milk_amts)
+    lowest = milk_amts[0]
+    second_lowest = -1
+    for i in milk_amts:
         if i > lowest:
-            secondLowest = i
+            second_lowest = i
             break
 
-    return secondLowest
+    return second_lowest
 
 # find cow(s) associated with the second lowest amount of milk
-def main(cows, secondLowest):
-    numCowsFound = 0
-    cowName = ''
-    if secondLowest != -1:
+def main(cows, second_lowest):
+    num_cows_found = 0
+    cow_name = ''
+    if second_lowest != -1:
         for cow in cows:
-            if cows[cow] == secondLowest:
-                numCowsFound += 1
-                cowName = cow
+            if cows[cow] == second_lowest:
+                num_cows_found += 1
+                cow_name = cow
 
-    return cowName, numCowsFound
+    return cow_name, num_cows_found
 
-def writeOutput(cowName, secondLowest, numCowsFound):
+def write_output(cow_name, second_lowest, num_cows_found):
     f = open("notlast.out","w")
-    if secondLowest == -1:
+    if second_lowest == -1:
         f.write("Tie\n")
-    elif numCowsFound > 1:
+    elif num_cows_found > 1:
        f.write("Tie\n")
     else:
-        f.write(cowName + "\n")
+        f.write(cow_name + "\n")
     f.close()
 
-cows = readInput()
-secondLowest = findSecondLowest(cows)
-cowName, numCowsFound = main(cows, secondLowest)
-writeOutput(cowName, secondLowest, numCowsFound)
+cows = read_input()
+second_lowest = find_second_lowest(cows)
+cow_name, num_cows_found = main(cows, second_lowest)
+write_output(cow_name, second_lowest, num_cows_found)

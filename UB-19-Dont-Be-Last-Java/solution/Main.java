@@ -1,10 +1,18 @@
 import java.util.*;
 import java.io.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
-    
-		//Bessie, Elsie, Daisy, Gertie, Annabelle, Maggie, and Henrietta = cows 
+
+		//Bessie, Elsie, Daisy, Gertie, Annabelle, Maggie, and Henrietta = cows
 
 		BufferedReader br = new BufferedReader(new FileReader("notlast.in"));
 		int num = Integer.parseInt(br.readLine()); //number of entries in the milking log
@@ -61,9 +69,9 @@ class Main {
 		} else { //multiple or no occurrences of second
 			pw.println("Tie");
 		}
-		
+
 		br.close();
 		pw.close();
-		
+
   }
 }

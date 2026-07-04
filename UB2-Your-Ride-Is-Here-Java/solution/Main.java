@@ -7,9 +7,17 @@ TASK: ride
 import java.io.*;
 import java.util.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
-    
+
 		// read input
 		BufferedReader br = new BufferedReader(new FileReader("ride.in"));
 		String input1 = br.readLine();
@@ -28,7 +36,7 @@ class Main {
 			number1 *= ((int)(input1.charAt(i)) - 64);
 		}
 		number1 = number1 % 47;
-		
+
 		// same thing for input2
 
 		for(int i = 0; i < input2.length(); i++) {
@@ -41,9 +49,9 @@ class Main {
 		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("ride.out")));
 
 		if (number1 == number2) {
-			pw.println("GO"); 
-		} else { 
-			pw.println("STAY"); 
+			pw.println("GO");
+		} else {
+			pw.println("STAY");
 		}
 
 		pw.close();

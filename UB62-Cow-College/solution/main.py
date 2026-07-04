@@ -1,15 +1,15 @@
 #adapted from USACO
 MAX_TUITION = 1000000
 n = int(input())
-tuitionToCow = [0] * (MAX_TUITION + 1)
+tuition_to_cow = [0] * (MAX_TUITION + 1)
 for x in input().split():
-  tuitionToCow[int(x)] += 1
-maxMoney = 0
-bestTuition = 0
-currentCows = 0
+  tuition_to_cow[int(x)] += 1
+max_money = 0
+best_tuition = 0
+current_cows = 0
 for tuition in range(MAX_TUITION, 0, -1):
-  currentCows += tuitionToCow[tuition]
-  if tuition * currentCows >= maxMoney:
-    maxMoney = tuition * currentCows
-    bestTuition = tuition
-print(maxMoney, bestTuition)
+  current_cows += tuition_to_cow[tuition]
+  if tuition * current_cows >= max_money:
+    max_money = tuition * current_cows
+    best_tuition = tuition
+print(max_money, best_tuition)

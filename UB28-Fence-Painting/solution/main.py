@@ -1,6 +1,6 @@
 # http://www.usaco.org/index.php?page=viewproblem2&cpid=567
 
-def readInput():
+def read_input():
     f = open("paint.in")
     text = f.readlines()
     f.close()
@@ -38,11 +38,11 @@ def main(a,b,c,d):
 
     return length
 
-def writeOutput(length):
+def write_output(length):
     f = open("paint.out","w")
     f.write(str(length) + "\n")
     f.close()
 
-a,b,c,d = readInput()
+a,b,c,d = read_input()
 length = main(a,b,c,d)
-writeOutput(length)
+write_output(length)

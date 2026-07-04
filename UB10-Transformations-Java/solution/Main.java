@@ -7,13 +7,21 @@ TASK: transform
 import java.util.*;
 import java.io.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
 
 		BufferedReader br = new BufferedReader(new FileReader("transform.in"));
 
 		int length = Integer.parseInt(br.readLine());
-		
+
 		// a1 is before transformation
 		// a2 is after transfomation
 		char[][] a1 = new char[length][length];
@@ -61,10 +69,10 @@ class Main {
 		pw.close();
 
   }
-	
+
 	// check() returns true if the arrays a2 and a3 contain the exact same contents, and false otherwise
 	public static boolean check(char[][] a2, char[][] a3) {
-		for(int i=0; i<a2.length; i++) {	
+		for(int i=0; i<a2.length; i++) {
 			for(int j=0; j<a2[i].length; j++) {
 				if(a2[i][j] != a3[i][j]) {
 					return false;
@@ -77,7 +85,7 @@ class Main {
 	// one() rotates a1 90 degrees clockwise
 	public static char[][] one(char[][] a1) {
 		char[][] transform = new char[a1.length][a1[0].length];
-		for(int i=0; i<a1.length; i++) {	
+		for(int i=0; i<a1.length; i++) {
 			for(int j=0; j<a1[i].length; j++) {
 				transform[j][a1.length-1-i] = a1[i][j];
 			}
@@ -95,10 +103,10 @@ class Main {
 		return one(one(one(a1)));
 	}
 
-	// four() reflects a1 horizontally 
+	// four() reflects a1 horizontally
 	public static char[][] four(char[][] a1) {
 		char[][] transform = new char[a1.length][a1[0].length];
-		for(int i=0; i<a1.length; i++) {	
+		for(int i=0; i<a1.length; i++) {
 			for(int j=0; j<a1[i].length; j++) {
 				transform[i][a1.length-1-j] = a1[i][j];
 			}

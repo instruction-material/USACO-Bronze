@@ -1,7 +1,7 @@
 # http://www.usaco.org/index.php?page=viewproblem2&cpid=665
 
 
-def readInput():
+def read_input():
     f = open("cowsignal.in")
     text = f.readlines()
     f.close()
@@ -17,23 +17,23 @@ def readInput():
 def main(signal, factor):
     # for each line, append that character n times
     # then append that line n times to newSignal
-    newSignal = []
+    new_signal = []
     for line in signal:
-        newLine = ''
+        new_line = ''
         for letter in line:
             for i in range(factor):
-                newLine += letter
+                new_line += letter
         for i in range(factor):
-            newSignal.append(newLine)
+            new_signal.append(new_line)
 
-    return newSignal
+    return new_signal
 
-def writeOutput(newSignal):
+def write_output(new_signal):
     f = open("cowsignal.out","w")
-    for line in newSignal:
+    for line in new_signal:
         f.write(line + "\n")
     f.close()
 
-signal, factor = readInput()
-newSignal = main(signal, factor)
-writeOutput(newSignal)
+signal, factor = read_input()
+new_signal = main(signal, factor)
+write_output(new_signal)

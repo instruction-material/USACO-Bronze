@@ -1,9 +1,17 @@
 import java.util.*;
 import java.io.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
-    
+
 		BufferedReader br = new BufferedReader(new FileReader("hps.in"));
 		int games = Integer.parseInt(br.readLine());
 		int[][] hps = new int[games][2];
@@ -21,7 +29,7 @@ class Main {
 
 		for(int i = 0; i < games; i++) {
 
-				if(hps[i][0] == 1 && hps[i][1] == 2) { 
+				if(hps[i][0] == 1 && hps[i][1] == 2) {
 					wins1++; //1 beats 2
 				} else if(hps[i][0] == 2 && hps[i][1] == 3) {
 					wins1++; //2 beats 3
@@ -43,6 +51,6 @@ class Main {
 
 		br.close();
 		pw.close();
-		
+
   }
 }

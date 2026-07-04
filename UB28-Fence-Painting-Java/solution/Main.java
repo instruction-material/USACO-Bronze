@@ -1,9 +1,17 @@
 import java.util.*;
 import java.io.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
-		
+
 		BufferedReader br = new BufferedReader(new FileReader("paint.in"));
 		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("paint.out")));
 		//bessie's interval

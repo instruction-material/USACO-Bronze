@@ -7,7 +7,15 @@ TASK: combo
 import java.io.*;
 import java.util.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
 
 		//retrieve the input data: dial number, FJ's combination,  master combination
@@ -20,12 +28,12 @@ class Main {
 
 		//all valid codes are stored in this ArrayList
 		ArrayList<Code> a = new ArrayList<Code>();
-		
+
 		for(int i = 0; i < 2; i++) { //code1 = 0; code2 = 1
 			for(int j = -2; j <= 2; j++) { //difference in x
 				for(int k = -2; k <= 2; k++) { //difference in y
 					for(int l = -2; l <= 2; l++) { //difference in z
-          
+
 						//you have to test if the combination is valid with both code1 and code2
 						//add new code with added difference (j, k, l) to ArrayList
 
@@ -46,7 +54,7 @@ class Main {
 		}
 
 		//output
-		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("combo.out")));	
+		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("combo.out")));
 		pw.println(a.size());
 		pw.close();
 		br.close();
@@ -57,7 +65,7 @@ class Main {
 	public static void add(ArrayList<Code> a, Code c, int num) {
 
 		//fix the code to make it loop back around if it is negative or above num
-		
+
 		//x, y, or z is negative
 		if(c.x <= 0) {
 			c.x = num + c.x;
@@ -90,7 +98,7 @@ class Main {
 
 		//only add combination if x, y, and z are in bounds and if the combination hasn't already been added
 		//NOTE that even though x, y, and z were looped back around, they could still be out of bounds if num is a super small number (such as 1)
-		if(!found && c.x > 0 && c.y > 0 && c.z > 0 && 
+		if(!found && c.x > 0 && c.y > 0 && c.z > 0 &&
 		c.x <= num && c.y <= num && c.z <= num) {
 			a.add(c);
 		}

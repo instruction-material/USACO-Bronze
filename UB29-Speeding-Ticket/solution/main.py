@@ -1,48 +1,48 @@
 # http://www.usaco.org/index.php?page=viewproblem2&cpid=568
 
-def readInput():
+def read_input():
     f = open("speeding.in")
     text = f.readlines()
     f.close()
-    
-    n = int(text[0].split()[0])
-    speedLimits = generateSpeedDict(text[1:n+1])
-    bessieSpeeds = generateSpeedDict(text[n+1:])
 
-    return speedLimits, bessieSpeeds
+    n = int(text[0].split()[0])
+    speed_limits = generate_speed_dict(text[1:n+1])
+    bessie_speeds = generate_speed_dict(text[n+1:])
+
+    return speed_limits, bessie_speeds
 
 # create a dictionary where each key is a road segment index
 # and each value is the speed or speed limit at that segment
-def generateSpeedDict(data):
-    speedDict = {}
-    roadSegment = 1
+def generate_speed_dict(data):
+    speed_dict = {}
+    road_segment = 1
 
     for i in range(len(data)):
-        segmentLength = int(data[i].split()[0])
-        speedLimit = int(data[i].split()[1])
+        segment_length = int(data[i].split()[0])
+        speed_limit = int(data[i].split()[1])
 
-        for j in range(segmentLength):
-            speedDict[roadSegment] = speedLimit
-            roadSegment += 1
+        for j in range(segment_length):
+            speed_dict[road_segment] = speed_limit
+            road_segment += 1
 
-    return speedDict
+    return speed_dict
 
-def main(speedLimits, bessieSpeeds):
+def main(speed_limits, bessie_speeds):
     # iterate through the dictionaries and calculate the max amount
     # by which Bessie exceeded the speed limit
 
-    maxExceeds = 0
-    for key in bessieSpeeds:
-        speedDiff = bessieSpeeds[key] - speedLimits[key]
-        maxExceeds = max(maxExceeds, speedDiff)
-        
-    return maxExceeds
+    max_exceeds = 0
+    for key in bessie_speeds:
+        speed_diff = bessie_speeds[key] - speed_limits[key]
+        max_exceeds = max(max_exceeds, speed_diff)
 
-def writeOutput(maxExceeds):
+    return max_exceeds
+
+def write_output(max_exceeds):
     f = open("speeding.out","w")
-    f.write(str(maxExceeds) + "\n")
+    f.write(str(max_exceeds) + "\n")
     f.close()
 
-speedLimits, bessieSpeeds = readInput()
-maxExceeds = main(speedLimits, bessieSpeeds)
-writeOutput(maxExceeds)
+speed_limits, bessie_speeds = read_input()
+max_exceeds = main(speed_limits, bessie_speeds)
+write_output(max_exceeds)

@@ -1,27 +1,35 @@
 import java.util.*;
 import java.io.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
-    
+
 		BufferedReader br = new BufferedReader(new FileReader("circlecross.in"));
 		String s = br.readLine();
 		br.close();
-		
+
 		int pairs = 0;
 
 		for(int i = 0; i < s.length(); i++) {
-			
+
 			//index i is the entry and exit1 is the exit for the character at index i
 			int exit1 = s.indexOf(s.charAt(i), s.indexOf(s.charAt(i)) + 1);
 
 			//exit1 = -1 -> your other character has already passed
 			//exit1 = 0 -> your other character is right next to this one
 			if(exit1 != -1 && exit1 != 0) {
-				
+
 				//loop through the characters from entry to exit
 				for(int j = i; j < exit1+1; j++) {
-					
+
 					//entry and exit for character at index j
 					int entry2 = j;
 					int exit2 = s.indexOf(s.charAt(entry2), s.indexOf(s.charAt(entry2)) + 1);

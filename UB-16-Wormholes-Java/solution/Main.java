@@ -7,12 +7,20 @@ TASK: wormhole
 import java.util.*;
 import java.io.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
-    
+
 		BufferedReader br = new BufferedReader(new FileReader("wormhole.in"));
 		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("wormhole.out")));
-		
+
 		//read in x and y coordinates
 		int n = Integer.parseInt(br.readLine());
 		int[] x = new int[n];
@@ -59,17 +67,17 @@ class Main {
 						nextOnRight[i] = j;
 					}
 				}
-			}	
+			}
 		}
 		return nextOnRight;
 	}
-	
+
 	//checks whether a given pairing of wormholes results in a cycle
 	public static boolean cycleExists(int[] partners, int[] nextOnRight) {
 			//try starting at each wormhole and looking for a cycle
 			for(int i = 0; i < partners.length; i++) {
 					int pos = i;
-					
+
 					//at most, try taking N steps (where each step is a teleport + moving to the right)
 					for(int j = 0; j < partners.length; j++) {
 							//teleport to the partner wormhole
@@ -87,14 +95,14 @@ class Main {
 							return true;
 					}
 			}
-					
+
 			return false;
 	}
 
 	//recursively generate all pairings of wormholes and check if each pairing results in a cycle
 	public static int recursive(int[] partners, int[] nextOnRight) {
 			int totalSolutions = 0;
-			
+
 			//find the first unpaired wormhole
 			int unpairedWormholeIndex = 0;
 			boolean foundUnpairedWormhole = false;
