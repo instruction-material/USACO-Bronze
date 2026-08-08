@@ -1,8 +1,3 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 """
 ID: your_id_here
 LANG: PYTHON3
@@ -53,7 +48,9 @@ def calc_times(milk_times):
             current_no_milk_time = 0
         else:
             current_no_milk_time += 1
-            longest_no_milk_time = max(longest_no_milk_time, current_no_milk_time)
+            longest_no_milk_time = max(
+                longest_no_milk_time, current_no_milk_time
+            )
             current_milk_time = 0
 
     return longest_milk_time, longest_no_milk_time

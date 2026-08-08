@@ -1,8 +1,3 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 # http://www.usaco.org/index.php?page=viewproblem2&cpid=591
 
 
@@ -29,9 +24,9 @@ def calc_promotions(participants):
     )
 
     # promoted from B to S = num in S or G or P after - num in S or G or P before
-    num_bto_s = (participants[1][1] + participants[2][1] + participants[3][1]) - (
-        participants[1][0] + participants[2][0] + participants[3][0]
-    )
+    num_bto_s = (
+        participants[1][1] + participants[2][1] + participants[3][1]
+    ) - (participants[1][0] + participants[2][0] + participants[3][0])
 
     return num_gto_p, num_sto_g, num_bto_s
 

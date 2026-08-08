@@ -1,8 +1,3 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 # read input
 with open("friday.in", "r") as file:
     input_years = int(file.readline().strip())
@@ -26,7 +21,9 @@ for year in range(1900, 1900 + input_years):
             if year % 100 == 0:  # if the year is a century
                 if year % 400 == 0:  # if the year is divisible by 400
                     num_days_in_month += 1  # leap year
-            elif year % 4 == 0:  # if the year is not a century and divisible by 4
+            elif (
+                year % 4 == 0
+            ):  # if the year is not a century and divisible by 4
                 num_days_in_month += 1  # leap year
 
         # loop through dates
