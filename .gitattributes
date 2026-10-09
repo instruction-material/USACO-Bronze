@@ -1,0 +1,2 @@
+# Keep the documented Bash verification command portable.
+*.sh text eol=lf

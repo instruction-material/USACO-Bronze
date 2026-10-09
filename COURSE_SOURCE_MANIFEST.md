@@ -78,8 +78,21 @@ Canonical source repository: `USACO-Bronze`
 - Active linked folders: 55
 - Archived inactive/support folders: 71
 - Wrapper project folders: 55
-- Placeholder role folders awaiting a distinct counterpart: 55
-- Complete starter/solution pairs with distinct migrated content: 0
-- Active source-like files excluding archive: 169
+- Placeholder role folders awaiting a distinct counterpart: 52
+- Complete starter/solution pairs with distinct learner source: 3
+- Active source-like files excluding archive: 176
 
 Notes: active source-like files exclude `_archived-unlinked/`. Placeholder role folders are structural markers only; they do not contain assignment source yet.
+
+## Verified distinct learner packs
+
+Square Pasture, Cow College, and Feeding the Cows have separate unfinished
+learner source, unchanged legacy references, and independent acceptance checks.
+Run `python3 tests/verify-square-pasture.py` and
+`python3 tests/verify-stdio-packs.py` from the repository root. The latter checks
+standard input/output, tuition ties, valid minimal feeding layouts, untouched
+learner boundaries, completed learner drivers, and full published input limits.
+
+Other placeholder folders still need distinct learner code. The source pack
+checks establish source readiness; each site import needs its own pinned
+revision, role separation, confirmation, and saved-work verification.
