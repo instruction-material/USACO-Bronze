@@ -1,10 +1,17 @@
 # UB63 Feeding the Cows
 
-Canonical source repository: `USACO-Bronze`
+Canonical source repository: `USACO-Bronze`.
 
-This project was migrated from the legacy direct-source layout on 2026-05-14. The original files are preserved under `solution/` as the current solution/reference snapshot.
+The original reference migrated on 2026-05-14 remains unchanged in `solution/`.
+A distinct learner pack now exists in `starter/`, with a supplied standard
+input/output driver and an unfinished algorithm helper.
 
-## Structure
+- [Learner project guide](starter/README.md): purpose, prerequisites, contract,
+  guided implementation, independent practice, edge cases, and run instructions.
+- [Reference instructions](solution/README.md): preserved code, sample contract,
+  and acceptance checks.
 
-- `solution/` contains the migrated source files.
-- `starter/` is present to keep the course wrapper shape consistent; add a distinct starter snapshot there when one is available.
+The role folders are separate. Keep learner work independent of the reference.
+Verify both packs from the repository root with
+`python3 tests/verify-stdio-packs.py`. Site import readiness requires a separately
+verified catalog revision, role-specific source mapping, and actual IDE import.
