@@ -1,5 +1,10 @@
-# UB1 Square Pasture starter
+# Square Pasture learner starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `USACO-Bronze`.
+Open `main.py` and `square.in` from this folder. File reading and writing are
+provided. Complete only `minimum_square_area`, whose three comments identify
+the bounds, side-length and area tasks. The untouched starter deliberately
+raises `NotImplementedError` and creates no answer file.
 
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+The complete [project guide](../README.md) explains the input contract, a
+worked prediction, run command and independent checks. Keep this learner
+attempt separate from `../solution/`, which preserves the original reference.
