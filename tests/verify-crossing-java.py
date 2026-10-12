@@ -137,7 +137,7 @@ def verify(java, javac):
                               learnerRemainsUnfinished=role=='learner', previousAnswerPreserved=role=='learner'))
         guards = []
         for role in ['starter', 'solution']:
-            guide = before[role+'/README.md'].decode()
+            guide = before[role+'/README.md'].decode().replace('\r\n', '\n')
             found = re.findall(r'```sh\n(.*?)\n```', guide, re.S)
             assert len(found) == 1
             guard = found[0].replace('javac --release', shlex.quote(javac)+' --release')

@@ -46,6 +46,7 @@ def write_output(ans):
 
 
 N, social, req_cows = read_input()
-check(N, social, req_cows)  # ADDED: verify base constraints even when cow 1 is fixed.
+if check(N, social, req_cows) is not True:  # CHANGED: require a Boolean success.
+    raise ValueError("Valid base constraints must be feasible")  # ADDED
 ans = main(N, social, req_cows)
 write_output(ans)
