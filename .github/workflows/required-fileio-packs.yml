@@ -1,0 +1,19 @@
+name: Bronze required Python file-I/O acceptance
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Verify seven native packs, independent models and unfinished tasks
+        env:
+          CODEX_PARENT_TASK_ID: bronze-required-fileio-${{ github.run_id }}
+        run: python3 tests/verify-required-fileio-packs.py

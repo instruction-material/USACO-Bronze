@@ -1,0 +1,118 @@
+{
+  "UB6-Milking-Cows/README.md": {
+    "sha256": "681220b2e029f93d262be46b49383c137ec1e2aa3cfeb97bd7dd086eb6045ddf",
+    "bytes": 433
+  },
+  "UB6-Milking-Cows/solution/generated-icon.png": {
+    "sha256": "65720c2adbf0f1d393a1d5eceefed7880418abd10f8565c22dc0822e90e1ebeb",
+    "bytes": 9927
+  },
+  "UB6-Milking-Cows/solution/main.py": {
+    "sha256": "18b2547639f504b2d91de32113cb71ddb7f42bf7448c005cd59804e1968d4e85",
+    "bytes": 2011
+  },
+  "UB6-Milking-Cows/solution/milk2.in": {
+    "sha256": "fcb0dad3074b059d0dd8b9e40087c76e6448ce6fba13c0628530b799c8870f35",
+    "bytes": 29
+  },
+  "UB6-Milking-Cows/solution/milk2.out": {
+    "sha256": "a71facc1f03034e96aca3cd7aa97c8678a47eb81088fc76b1d0d3dd4470b21e2",
+    "bytes": 8
+  },
+  "UB6-Milking-Cows/starter/README.md": {
+    "sha256": "8c159c142c6f6d5b307177622ca8c8feaf868fd45bb7022eabaf1938f8f86be1",
+    "bytes": 324
+  },
+  "UB10-Transformations/README.md": {
+    "sha256": "5b957114c4fcbc6a10a546d0f3fa207b3ec3d3b40c98ee3d9f41199f226ebf96",
+    "bytes": 437
+  },
+  "UB10-Transformations/solution/main.py": {
+    "sha256": "e7ba5c02c982470e0d6b629057ab748769e5c4cdd6448ddef4ed4b40bae2cafa",
+    "bytes": 2657
+  },
+  "UB10-Transformations/solution/transform.out": {
+    "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "bytes": 2
+  },
+  "UB10-Transformations/starter/README.md": {
+    "sha256": "d3b134d89f14117867582ac9a0fbf107c4671734df1a301ca7079435ada8684e",
+    "bytes": 328
+  },
+  "UB16-Wormholes/README.md": {
+    "sha256": "60dae6b006471cb931efc34fc00cbb9358dd9c4763090eb968ce7ad8091597e6",
+    "bytes": 431
+  },
+  "UB16-Wormholes/solution/main.py": {
+    "sha256": "548423e78125f7e7489e86ac613662a66894a08761fe104176f16a3e5a8a8861",
+    "bytes": 3282
+  },
+  "UB16-Wormholes/starter/README.md": {
+    "sha256": "b38f47960d12ad77e86ea9b4118b28bfdc33afae8796fb079de4d39f2ef33edb",
+    "bytes": 322
+  },
+  "UB25-The-Lost-Cow/README.md": {
+    "sha256": "bf9dc83aa0d34025af86c195b7e136e1567a973af632913d93d7a76a0af7c443",
+    "bytes": 434
+  },
+  "UB25-The-Lost-Cow/solution/main.py": {
+    "sha256": "01c89943c3a9312e959857fbdbba9e921108d8c90c6958ee7084698b19349bea",
+    "bytes": 1317
+  },
+  "UB25-The-Lost-Cow/starter/README.md": {
+    "sha256": "f6446f7124979fda1e8af2a0a130f9807b2f993b17bc050d97d4863580bee6e9",
+    "bytes": 325
+  },
+  "UB37-Diamond-Collector/README.md": {
+    "sha256": "ccfeecac718ce2aa947ad68a19a1bd8d422eb982619b3001849683394dbe9e9e",
+    "bytes": 439
+  },
+  "UB37-Diamond-Collector/solution/main.py": {
+    "sha256": "6a0b36b7520b5405ed54556a29468cd459779556687cb672d9285ff0f07a951b",
+    "bytes": 1116
+  },
+  "UB37-Diamond-Collector/starter/README.md": {
+    "sha256": "c78d7eac1c8a928e83dd3042e51fc32dceea18cb0291888ed97af09c8f46404d",
+    "bytes": 330
+  },
+  "UB50-Milking-Order/README.md": {
+    "sha256": "9f07564611ec2d918003e08b98fadf397f1e6a48840fe846f7502ef21e22830e",
+    "bytes": 435
+  },
+  "UB50-Milking-Order/solution/main.py": {
+    "sha256": "de4efad90a6af457065569d40982cc8561f114a791dcc64e01cb4b70dec247b5",
+    "bytes": 1656
+  },
+  "UB50-Milking-Order/solution/milkorder.in": {
+    "sha256": "7bc55a62e7af2bb7a738056971d9eccc580383dd308276fa5b062182e73c4423",
+    "bytes": 29
+  },
+  "UB50-Milking-Order/solution/milkorder.out": {
+    "sha256": "f0b5c2c2211c8d67ed15e75e656c7862d086e9245420892a7de62cd9ec582a06",
+    "bytes": 2
+  },
+  "UB50-Milking-Order/starter/README.md": {
+    "sha256": "a4b58fc299307df9e4a92174655c1d1f151abf79652254a60d994f9b56db4cef",
+    "bytes": 326
+  },
+  "UB51-Family-Tree/README.md": {
+    "sha256": "2eaff82b83fd52fcde9451156c1830ce1d7d2c40e2ed82efc6700349087bb85e",
+    "bytes": 433
+  },
+  "UB51-Family-Tree/solution/family.in": {
+    "sha256": "c8ba13927b42fbae8b5005f907974edc8d8dcdb93f26a04cc220c8fb7813788f",
+    "bytes": 100
+  },
+  "UB51-Family-Tree/solution/family.out": {
+    "sha256": "633e03a2ded302f2511ea484ded4aa48df5442f57aa1aa24cd1ca531c3bec08d",
+    "bytes": 27
+  },
+  "UB51-Family-Tree/solution/main.py": {
+    "sha256": "6152c9fcfce18101b651f47858c4339563f7fc4aa927e70bbfad24e7ae153644",
+    "bytes": 1801
+  },
+  "UB51-Family-Tree/starter/README.md": {
+    "sha256": "541e8f17cc5016c8f97935ee708fca09546b8039220034ff6250d9782f92b1e1",
+    "bytes": 324
+  }
+}
