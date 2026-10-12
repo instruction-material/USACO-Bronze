@@ -1,2 +1,5 @@
 # Keep the documented Bash verification command portable.
 *.sh text eol=lf
+
+# Keep answer oracles compatible with native output on Unix checkouts.
+*.expected text eol=lf

@@ -14,7 +14,7 @@ Cow 10 must occupy position 2 and cow 8 position 4. Hierarchy 2,10,3,1 requires 
 
 ## Implement and explain
 
-Complete `check(N,social,req_cows)`, returning a Boolean feasibility result. Reserve all fixed positions first. Traverse hierarchy cows in order; use their fixed slot when present and reject a slot before the current lower bound. Otherwise put the cow in the earliest free slot at or after that bound. The learner driver checks the base constraints first, including when cow 1 is already fixed, so an unfinished task always refuses to publish an answer. The supplied `main` then tries candidate positions for cow 1 in ascending order and handles an already fixed cow 1. Explain why placing an unfixed hierarchy cow earlier cannot reduce the space available to later hierarchy cows.
+Complete `check(N,social,req_cows)`, returning a Boolean feasibility result. Reserve all fixed positions first. Traverse hierarchy cows in order; use their fixed slot when present and reject a slot before the current lower bound. Otherwise put the cow in the earliest free slot at or after that bound. The learner driver requires the base feasibility check to return Boolean True before continuing, including when cow 1 is already fixed. False, a missing return value and an unfinished task stop before an answer is published. The supplied `main` then tries candidate positions for cow 1 in ascending order and handles an already fixed cow 1. Explain why placing an unfixed hierarchy cow earlier cannot reduce the space available to later hierarchy cows.
 
 Each feasibility check scans at most N positions plus M hierarchy entries and K fixed entries. Trying up to N candidate positions takes O(N squared) time and O(N) state. State for each trial must be fresh.
 

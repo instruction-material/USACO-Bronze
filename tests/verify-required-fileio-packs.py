@@ -292,6 +292,8 @@ def verify():
             assert (ROOT/folder/'solution/main.py').read_bytes() != (ROOT/folder/'starter/main.py').read_bytes()
             assert (ROOT/folder/'starter'/f'{task}.in').read_bytes()==(ROOT/folder/'solution'/f'{task}.in').read_bytes()
             assert (ROOT/folder/'starter/sample.expected').read_bytes()==(ROOT/folder/'solution/sample.expected').read_bytes()
+            assert b'\r' not in (ROOT/folder/'starter/sample.expected').read_bytes()
+            assert '*.expected text eol=lf' in (ROOT/'.gitattributes').read_text()
             for role in ['solution','starter','completed']:
                 directory=temporary/(folder+'-'+role)
                 directory.mkdir()
@@ -321,6 +323,23 @@ def verify():
                 assert not out and f'TASK: {function}' in err.decode()
                 assert (directory/f'{task}.out').read_text()=='Earlier answer\n'
                 partial_tasks.append(dict(folder=folder,function=function,refused=True,previousAnswerPreserved=True))
+            if task == 'milkorder':
+                for label, body, payload in [
+                    ('false-fixed-one', '    return False\n', '4 2 1\n2 3\n1 4\n'),
+                    ('missing-return', '    pass\n', (ROOT/folder/'starter/milkorder.in').read_text()),
+                ]:
+                    directory=temporary/(folder+'-base-'+label)
+                    directory.mkdir()
+                    code=completed_learner(spec)
+                    fn=next(n for n in ast.parse(code).body if isinstance(n,ast.FunctionDef) and n.name=='check')
+                    lines=code.splitlines(keepends=True)
+                    lines[fn.body[0].lineno-1:fn.end_lineno]=[body]
+                    (directory/'main.py').write_text(''.join(lines))
+                    (directory/'milkorder.in').write_text(payload)
+                    (directory/'milkorder.out').write_text('Earlier answer\n')
+                    out,err=execute([sys.executable,'main.py'],directory,1)
+                    assert not out and 'Valid base constraints must be feasible' in err.decode()
+                    assert (directory/'milkorder.out').read_text()=='Earlier answer\n'
             for role in ['starter','solution']:
                 doc=(ROOT/folder/role/'README.md').read_text()
                 assert all(f'## {title}' in doc for title in ['Contract','Predict and trace','Implement and explain','Independent checks','Save and run'])
@@ -343,7 +362,7 @@ def verify():
     after={str(f.relative_to(ROOT)):f.read_bytes() for s in SPECS for f in (ROOT/s['folder']).rglob('*') if f.is_file()}
     assert before==after
     report=dict(packs=7,namedTasks=10,roles=rows,casesPerCompletedRole=sum(len(v) for v in all_cases.values()),
-                guardCases=len(guards),guards=guards,partialTaskCases=len(partial_tasks),partialTasks=partial_tasks,independentProblemModels=True,
+                baseFeasibilityRefusals=2,guardCases=len(guards),guards=guards,partialTaskCases=len(partial_tasks),partialTasks=partial_tasks,independentProblemModels=True,
                 referenceAndOriginalBytesChecked=True,sourceFilesUnchanged=True,
                 completedTaskBodiesFromVerifiedReference=True,totalNativeProcesses=len(PROCESSES))
     receipt=os.environ.get('BRONZE_FILEIO_ACCEPTANCE_RECEIPT')
