@@ -24,12 +24,15 @@ def create_array(times):
     # Create an array to track milking times
     milk_times = [False] * (latest_time - earliest_time)
 
-    # Fill the array based on when milking was active
-    for time in times:
-        start_time = time[0] - earliest_time
-        end_time = time[1] - earliest_time
-        for i in range(start_time, end_time):
-            milk_times[i] = True
+    # CHANGED: record boundaries once instead of filling each interval.
+    changes = [0] * (len(milk_times) + 1)  # ADDED
+    for start, end in times:  # CHANGED
+        changes[start - earliest_time] += 1  # ADDED
+        changes[end - earliest_time] -= 1  # ADDED
+    active = 0  # ADDED
+    for i in range(len(milk_times)):  # CHANGED
+        active += changes[i]  # ADDED
+        milk_times[i] = active > 0  # CHANGED
 
     return milk_times, earliest_time, latest_time
 

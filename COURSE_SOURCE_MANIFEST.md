@@ -78,9 +78,9 @@ Canonical source repository: `USACO-Bronze`
 - Active linked folders: 55
 - Archived inactive/support folders: 71
 - Wrapper project folders: 55
-- Placeholder role folders awaiting a distinct counterpart: 51
-- Complete starter/solution pairs with distinct learner source: 4
-- Active source-like files excluding archive: 179
+- Placeholder role folders awaiting a distinct counterpart: 44
+- Complete starter/solution pairs with distinct learner source: 11
+- Active source-like files excluding archive: 194
 
 Notes: active source-like files exclude `_archived-unlinked/` and `_guide-history/`. Placeholder role folders are structural markers only; they do not contain assignment source yet.
 
@@ -102,3 +102,11 @@ Road-Crossing Observations also has a separate unfinished Java learner. Run
 reference, completed learner, invalid-input refusal and documented shell guards
 are checked independently. Original reference bytes and superseded guides are
 preserved. Website import readiness is a separate acceptance gate.
+
+The seven required Python file-I/O learner counterparts have explicit tasks,
+standalone guides, matched input/oracle files and native acceptance via
+`python3 tests/verify-required-fileio-packs.py`. Six reference programs remain
+unchanged; Milking Cows has a marked boundary-array performance correction
+with the original preserved in `_guide-history/bronze-required-fileio/`.
+Exact hosted source checks and pinned site import/save/export checks are
+separate gates. This update does not mark all remaining optional roles ready.

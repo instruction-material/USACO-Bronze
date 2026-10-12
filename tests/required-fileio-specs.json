@@ -1,0 +1,68 @@
+[
+  {
+    "folder": "UB6-Milking-Cows",
+    "task": "milk2",
+    "functions": [
+      "calc_times"
+    ],
+    "referenceSha256": "b2264f41fc90cc4a204c44720b34d4c4003549af63825bfc0b208de53742f135",
+    "originalReferenceSha256": "18b2547639f504b2d91de32113cb71ddb7f42bf7448c005cd59804e1968d4e85"
+  },
+  {
+    "folder": "UB10-Transformations",
+    "task": "transform",
+    "functions": [
+      "rotate90",
+      "reflect"
+    ],
+    "referenceSha256": "e7ba5c02c982470e0d6b629057ab748769e5c4cdd6448ddef4ed4b40bae2cafa",
+    "originalReferenceSha256": "e7ba5c02c982470e0d6b629057ab748769e5c4cdd6448ddef4ed4b40bae2cafa"
+  },
+  {
+    "folder": "UB16-Wormholes",
+    "task": "wormhole",
+    "functions": [
+      "generate_next_on_right",
+      "main"
+    ],
+    "referenceSha256": "548423e78125f7e7489e86ac613662a66894a08761fe104176f16a3e5a8a8861",
+    "originalReferenceSha256": "548423e78125f7e7489e86ac613662a66894a08761fe104176f16a3e5a8a8861"
+  },
+  {
+    "folder": "UB25-The-Lost-Cow",
+    "task": "lostcow",
+    "functions": [
+      "main"
+    ],
+    "referenceSha256": "01c89943c3a9312e959857fbdbba9e921108d8c90c6958ee7084698b19349bea",
+    "originalReferenceSha256": "01c89943c3a9312e959857fbdbba9e921108d8c90c6958ee7084698b19349bea"
+  },
+  {
+    "folder": "UB37-Diamond-Collector",
+    "task": "diamond",
+    "functions": [
+      "calc_num_diamonds",
+      "calc_max_diamonds"
+    ],
+    "referenceSha256": "6a0b36b7520b5405ed54556a29468cd459779556687cb672d9285ff0f07a951b",
+    "originalReferenceSha256": "6a0b36b7520b5405ed54556a29468cd459779556687cb672d9285ff0f07a951b"
+  },
+  {
+    "folder": "UB50-Milking-Order",
+    "task": "milkorder",
+    "functions": [
+      "check"
+    ],
+    "referenceSha256": "de4efad90a6af457065569d40982cc8561f114a791dcc64e01cb4b70dec247b5",
+    "originalReferenceSha256": "de4efad90a6af457065569d40982cc8561f114a791dcc64e01cb4b70dec247b5"
+  },
+  {
+    "folder": "UB51-Family-Tree",
+    "task": "family",
+    "functions": [
+      "main"
+    ],
+    "referenceSha256": "6152c9fcfce18101b651f47858c4339563f7fc4aa927e70bbfad24e7ae153644",
+    "originalReferenceSha256": "6152c9fcfce18101b651f47858c4339563f7fc4aa927e70bbfad24e7ae153644"
+  }
+]
