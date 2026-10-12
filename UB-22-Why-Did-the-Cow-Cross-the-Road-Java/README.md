@@ -1,10 +1,13 @@
-# UB 22 Why Did the Cow Cross the Road Java
+# Road-Crossing Observations
 
-Canonical source repository: `USACO-Bronze`
+- `starter/` contains a distinct unfinished Java task and a complete guide.
+- `solution/` retains the original reference and sample files unchanged, with
+  its own complete guide and sample comparison file.
+- Each role's README supplies the observation contract, prediction, state
+  invariant, independent checks and guarded native run steps.
+- The superseded wrapper-only guides are retained under
+  `_guide-history/bronze-crossing/` for provenance.
 
-This project was migrated from the legacy direct-source layout on 2026-05-14. The original files are preserved under `solution/` as the current solution/reference snapshot.
-
-## Structure
-
-- `solution/` contains the migrated source files.
-- `starter/` is present to keep the course wrapper shape consistent; add a distinct starter snapshot there when one is available.
+Run `python3 tests/verify-crossing-java.py --java <java> --javac <javac>` from
+the source repository root. Source acceptance is separate from the website's
+pinned import, consent, role separation and saved-attempt checks.

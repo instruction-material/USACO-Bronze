@@ -8,8 +8,9 @@ Promotion rule: restore a folder from `_archived-unlinked/` only after the live 
 
 ## Learner role backlog
 
-Three of the 55 active project wrappers now have distinct source in both roles:
-Square Pasture, Cow College, and Feeding the Cows. The other 52 still have
+Four of the 55 active project wrappers now have distinct source in both roles:
+Square Pasture, Cow College, Feeding the Cows and Road-Crossing Observations.
+The other 51 still have
 placeholder learner roles and must not be advertised as runnable starter packs.
 The original references are retained. File-input fixtures and algorithm/runtime
 acceptance for other projects remain separate audit items.
@@ -17,3 +18,8 @@ acceptance for other projects remain separate audit items.
 For Cow College and Feeding the Cows, source readiness is verified by
 `python3 tests/verify-stdio-packs.py`. Site import mapping and actual saved IDE
 workflows must be verified separately before claiming catalog import readiness.
+
+The Road-Crossing Observations Java source counterpart is now implemented and
+requires exact hosted Java 17/21 acceptance before source readiness is claimed.
+Its required website row remains an import audit item until the source revision
+is pinned and the real browser save/export workflow passes.

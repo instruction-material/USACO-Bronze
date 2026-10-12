@@ -78,11 +78,11 @@ Canonical source repository: `USACO-Bronze`
 - Active linked folders: 55
 - Archived inactive/support folders: 71
 - Wrapper project folders: 55
-- Placeholder role folders awaiting a distinct counterpart: 52
-- Complete starter/solution pairs with distinct learner source: 3
-- Active source-like files excluding archive: 176
+- Placeholder role folders awaiting a distinct counterpart: 51
+- Complete starter/solution pairs with distinct learner source: 4
+- Active source-like files excluding archive: 179
 
-Notes: active source-like files exclude `_archived-unlinked/`. Placeholder role folders are structural markers only; they do not contain assignment source yet.
+Notes: active source-like files exclude `_archived-unlinked/` and `_guide-history/`. Placeholder role folders are structural markers only; they do not contain assignment source yet.
 
 ## Verified distinct learner packs
 
@@ -96,3 +96,9 @@ learner boundaries, completed learner drivers, and full published input limits.
 Other placeholder folders still need distinct learner code. The source pack
 checks establish source readiness; each site import needs its own pinned
 revision, role separation, confirmation, and saved-work verification.
+
+Road-Crossing Observations also has a separate unfinished Java learner. Run
+`python3 tests/verify-crossing-java.py --java <java> --javac <javac>`; its native
+reference, completed learner, invalid-input refusal and documented shell guards
+are checked independently. Original reference bytes and superseded guides are
+preserved. Website import readiness is a separate acceptance gate.
