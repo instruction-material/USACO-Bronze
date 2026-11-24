@@ -1,0 +1,26 @@
+name: Bronze ski design file outputs
+on:
+  push:
+    paths:
+      - 'UB15-Ski-Course-Design/solution/main.py'
+      - 'UB-15-Ski-Course-Design-Java/solution/Main.java'
+      - 'tests/verify-ski-design.py'
+      - '.github/workflows/ski-design.yml'
+  pull_request:
+    paths:
+      - 'UB15-Ski-Course-Design/solution/main.py'
+      - 'UB-15-Ski-Course-Design-Java/solution/Main.java'
+      - 'tests/verify-ski-design.py'
+      - '.github/workflows/ski-design.yml'
+permissions:
+  contents: read
+jobs:
+  references:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Compare both references with an independent cost model
+        run: python3 tests/verify-ski-design.py

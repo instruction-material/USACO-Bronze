@@ -23,6 +23,8 @@ def main(heights):
     # (minHeight, lowestHeight + 17) up to (minHeight - 17, maxHeight)
 
     min_cost = 1000 * 100**2  # make sure minCost is set reasonably
+    if heights[-1] - heights[0] <= 17:
+        return 0
     min_height = heights[0]
     max_height = min_height + 17
 

@@ -26,7 +26,7 @@ class Main {
         }
         Collections.sort(a); //sort hills by size
 
-        int minPrice = Integer.MAX_VALUE;
+        int minPrice = a.get(a.size() - 1) - a.get(0) <= 17 ? 0 : Integer.MAX_VALUE;
 
         //test different intervals between i and i+17
         //i represents elevation
